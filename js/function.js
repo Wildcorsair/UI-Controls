@@ -95,12 +95,28 @@ function drawCalendar() {
 				   11: ['Декабрь', 31]
 	}
 	var today = new Date();
+	var mon = today.getMonth()+1;
 	var cYear = today.getFullYear();
+	var firstDayStr = cYear+'/'+mon+'/1';
+	var firstDay = new Date(firstDayStr);
+	
+	console.log(firstDayStr);
+	console.log('Номер дня первого числа: '+firstDay.getDay());
+	console.log('Номер дня сегодняшнего число: '+today.getDay());
+	if (today.getMonth() == 1) {
+		if (cYear % 4 == 0) {
+			currentMonthDays = 29;
+		} else {
+			currentMonthDays = month[today.getMonth()][1];
+		}
+	}
 	if (cYear % 4 == 0) {
 		console.log('Высокостный');
 	} else {
 		console.log('Не высокостный');
 	}
-	var monthLiteral = month[today.getMonth()][0];
-	console.log(monthLiteral);
+	var prevMonth = month[today.getMonth()-1][1];
+	var currentMonth = month[today.getMonth()][1];
+	console.log('К-ство дней в предыдущем месяце: '+prevMonth);
+	console.log('К-ство дней в текущем месяце: '+currentMonth);
 }
