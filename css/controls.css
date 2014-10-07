@@ -1,0 +1,417 @@
+/* Common styles */
+button::-moz-focus-inner,
+select::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+
+
+button, input {
+	border: none;
+	outline: none;
+	margin: 0;
+	padding: 0;
+	text-transform: none;
+}
+
+button, a {
+	font-size: 13px;
+	font-family: Arial, Tahoma, Helvetica, sans-serif;
+	cursor: pointer;
+}
+/* End of common styles */
+
+
+.f-left {
+	float: left;
+}
+
+.f-right {
+	float: right;
+}
+
+/* Icons styles */
+.ico-first {
+	background: url("../images/icons_sprite.png") no-repeat;
+	background-position: -168px 0;
+}
+
+.ico-first:hover {
+	background-position: -168px -24px;
+}
+
+.ico-last {
+	background: url("../images/icons_sprite.png") no-repeat;
+	background-position: -192px 0;
+}
+
+.ico-last:hover {
+	background-position: -192px -24px;
+}
+
+.ico-prev {
+	background: url("../images/icons_sprite.png") no-repeat;
+	background-position: -216px 0;
+}
+
+.ico-prev:hover {
+	background-position: -216px -24px;
+}
+
+.ico-next {
+	background: url("../images/icons_sprite.png") no-repeat;
+	background-position: -240px 0;
+}
+
+.ico-next:hover {
+	background-position: -240px -24px;
+}
+
+.ico-up {
+	background: url("../images/icons_sprite.png") no-repeat;
+	background-position: -264px 0;
+}
+
+.ico-up:hover {
+	background-position: -264px -24px;	
+}
+
+.ico-down {
+	background: url("../images/icons_sprite.png") no-repeat;
+	background-position: -288px 0;
+}
+
+.ico-down:hover {
+	background-position: -288px -24px;	
+}
+
+.ico-edit {
+	background: url("../images/icons_sprite.png") no-repeat;
+	background-position: -48px 0;
+}
+
+.ico-edit:hover {
+	background-position: -48px -24px;
+}
+
+.ico-delete {
+	background: url("../images/icons_sprite.png") no-repeat;
+	background-position: -72px 0;
+}
+
+.ico-delete:hover {
+	background-position: -72px -24px;
+}
+/* End of icons styles */
+
+
+/* Gray color table styles */
+table.gray-table {
+	width: 100%;
+	border-spacing: 1px;
+	border-collapse: separate;
+	background-color: #ccc;
+	font-family: Arial, Tahoma, Helvetica, sans-serif;
+	font-size: 13px;
+}
+.gray-table thead, tfoot {
+	color: #7c7c7c;
+	background-color: #eee;
+}
+.gray-table thead th, tfoot td {
+	padding: 7px;
+}
+.gray-table tbody {
+	color: #6b6b6b;
+	background-color: #fff;				
+}
+.gray-table tbody td {
+	padding: 3px;
+}
+.gray-table tfoot td div.counter {
+	margin: 8px 0 0 0;
+	height: 24px;
+	float: right;
+}
+.gray-table tfoot td div.pagination {
+	margin: 3px;
+	float: left;
+}
+tbody td.r-align {
+	text-align: right;
+}
+tbody td.btn-cont {
+	width: 24px;
+}
+/* End of gray color table */
+
+
+/* Toolbar buttons styles (button size 24x24px) */
+.btn-tb {
+	width: 25px;
+	height: 25px;
+	color: #6d6e71;
+	display: block;
+	text-align: center;
+	background-color: transparent;
+	line-height: 25px;
+	/*border: 1px solid #bbb;*/
+}
+
+.btn-tb:hover {
+	color: #f34a53;
+}
+
+a.btn-tb {
+	text-decoration: none;
+}
+/* End of Toolbar button styles */
+
+
+/* Links as button styles */
+.btn {
+	width: 24px;
+	height: 24px;
+	display: inline-block;
+	margin: 2px 0 0 2px;
+	line-height: 24px;
+	color: #6d6e71;
+	text-align: center;
+	border: 1px solid #aaa;
+	text-decoration: none;
+	background-color: #fff;
+}
+.btn:hover {
+	color: #f34a53;
+	background-color: #ccc;
+}
+.btn.active {
+	color: #fff;
+	background-color: #bbb;
+}
+button.btn {
+	width: 27px;
+	height: 27px;
+}
+/* End of links as button styles */
+
+/* Sizes styles */
+.btn.normal {
+	width: 64px;
+	height: 32px;
+	line-height: 32px;
+}
+input.btn.normal,
+button.btn.normal {
+	width: 66px;
+	height: 34px;
+}
+
+.btn.large {
+	width: 128px;
+	height: 32px;
+	line-height: 32px;
+}
+input.btn.large, 
+button.btn.large {
+	width: 130px;
+	height: 34px;
+}
+/* End of sizes styles */
+
+/* Button's types styles */
+.primary {
+	color: #fff;
+	background-color: #3869f4;
+	border: 1px solid #0c4dff;
+}
+.primary:hover {
+	color: #fff;
+	background-color: #1f54ec;
+}
+.success {
+	color: #fff;
+	background-color: #43bc43;
+	border: 1px solid #378a37;
+}
+.success:hover {
+	color: #fff;
+	background-color: #339833;
+}
+.cancel {
+	color: #fff;
+	background-color: #e0472e;
+	border: 1px solid #c32c2c;
+}
+.cancel:hover {
+	color: #fff;
+	background-color: #c83018;
+}
+/* End of button's types styles */
+
+/* Windows styles */
+.window-frame {
+	width: 100%;
+	height: 100%;
+	color: #7c7c7c;
+	font-family: Arial, Tahoma, Helvetica, sans-serif;
+	font-size: 14px;
+	position: relative;
+	border: 1px solid #aaa;
+	background-color: #eee;
+}
+.window-frame > .caption {
+	padding: 3px 3px 3px 11px;
+	width: 97,5%;
+	/*width: 336px;*/
+	height: 29px;
+	line-height: 29px;
+	border-bottom: 1px solid #aaa;
+	background-color: #ccc;
+}
+.window-frame > .btn-bar {
+	width: inherit;
+	height: 36px;
+	text-align: center;
+	position: absolute;
+	bottom: 20px;
+}
+.window-frame > p,
+.window-frame > div.workspace {
+	margin: 25px 25px 80px;
+	padding: 5px;
+	/*overflow-x: hidden;*/
+}
+
+.window-frame > p.dialog {
+	height: 90px;
+	max-height: 100px;
+	margin: 25px 25px 10px;
+	padding: 5px;
+	overflow-x: hidden;
+}
+
+.window-frame.dialog {
+	width: 350px;
+	height: 230px;
+}
+/* End of windows styles */
+
+
+/*
+	Стили таблицы (grid-а) в которой
+	размещаются контролы формы
+*/
+table.form-controls-grid {
+	margin: 15px;
+}
+
+table.form-controls-grid td {
+	padding: 5px;
+}
+
+table.form-controls-grid td.large {
+	padding-left: 25px;
+}
+
+
+/*
+	Стили контролов формы:
+
+	DropDown выпадающий список
+*/
+div.dropdown {
+	border: 1px solid #aaa;
+	width: 220px;
+	height: 24px;
+	line-height: 24px;
+	padding: 2px;
+	position: relative;
+	background-color: #fff;
+	display: inline-block;
+	z-index: 0;
+	opacity: 0.99;
+
+}
+div.dropdown .dd-btn {
+	height: 24px;
+	width: 24px;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+div.dropdown input {
+	width: 90%;
+	cursor: default;
+	color: #555;
+	font-family: Arial, Tahoma, Helvetica, sans-serif;
+	font-size: 14px;
+	/*position: relative;
+	z-index: 50;
+	opacity: .99;*/
+}
+div.items {
+	padding: 0;
+	display: none;
+	border: 1px solid #aaa;
+	height: 72px;
+	position: absolute;
+	top: 28px;
+	left: -1px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	background-color: #fff;
+	z-index: 100;
+}
+
+div.items ul {
+	margin: 0;
+    padding: 0;
+}
+
+div.items li {
+	white-space: nowrap;
+	padding-left: 5px;
+	cursor: default;
+	list-style-type: none;
+}
+
+div.items li:hover {
+	background-color: #ccc;
+}
+
+/*
+	TextEdit текстовое поле
+*/
+.window-frame input.text-field {
+	color: #555;
+	padding: 2px;
+	height: 24px;
+	line-height: 24px;
+	border: 1px solid #aaa;
+	font-family: Arial, Tahoma, Helvetica, sans-serif;
+	font-size: 14px;
+}
+
+.window-frame input.text-field:focus {
+	color: #318aa6;
+	border: 1px solid #52ccf4;
+}
+
+/*
+	Размер шрифта в контролах
+*/
+input.text-field .font-bold,
+div.dropdown .font-bold {
+	font-family: Arial, Tahoma, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+label {
+	display: inline-block;
+}
