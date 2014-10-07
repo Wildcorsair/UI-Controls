@@ -1,0 +1,91 @@
+<html>
+<head>
+    <meta charset='utf-8'>
+    <style>
+        #wrapper {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        table {
+            width: 1000px;
+            color: #222;
+            background-color: #aaa;
+        }
+        td {
+            padding: 5px;
+            background-color: #fff;
+        }
+        tr {
+        }
+        .param-name {
+            vertical-align: top;
+            color: #f44;
+        }
+        i {
+            color: blue;
+        }
+    </style>
+    <title>UI-Controls описание</title>
+</head>
+<body>
+    <div id='wrapper'>
+        <h2>Описание классов фреймворка UI-Controls</h2>
+        <hr>
+        <br>
+        <h3>Общие классы</h3>
+        <table>
+            <tr>
+                <td class='param-name'><b>f-right</b></td>
+                <td>
+                    Тип: Класс. Задает выравнивание блоков по правому краю.
+                    Применяется к любым блочным елементам.
+                </td>
+            </tr>
+            <tr>
+                <td class='param-name'><b>f-left</b></td>
+                <td>
+                    Тип: Класс. Задает выравнивание блоков по левому краю.
+                    Применяется к любым блочным елементам.
+                </td>
+            </tr>
+        </table>
+        <br>
+        <h3>Классы таблиц</h3>
+        <table>
+            <tr>
+                <td class='param-name'><b>gray-table</b></td>
+                <td>
+                    Тип: Класс. Задает стиль таблиц.
+                    Применяется к елементам типа <i>&lt;table&gt;</i>.
+                </td>
+            </tr>
+            <tr>
+                <td class='param-name'><b>counter</b></td>
+                <td>
+                    Тип: Класс. Задает стиль блока в котором выводится 
+                    информация по количеству отображаемых записей на текущей
+                    странице и количества записей удовлетворяющих условию 
+                    выборки. 
+                    <p>Применяется к елементам типа 
+                    <i>&lt;div&gt;</i>.</p>
+                    <p>Используется внутри класса 
+                    <b>gray-table</b> строка <i>&lt;tfoot&gt;</i> в ячейке 
+                    таблицы <i>&lt;td&gt;</i></p>
+                </td>
+            </tr>
+            <tr>
+                <td class='param-name'><b>pagination</b></td>
+                <td>
+                    Тип: Класс. Задает стиль блока в котором выводится 
+                    "пагинация".
+                    <p>Применяется к елементам типа 
+                    <i>&lt;div&gt;</i>.</p>
+                    <p>Используется внутри класса 
+                    <b>gray-table</b> строка <i>&lt;tfoot&gt;</i> в ячейке 
+                    таблицы <i>&lt;td&gt;</i></p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
