@@ -97,6 +97,7 @@
 			<button class='btn normal success' data-value='item22'>Success</button>
 			<button class='btn normal cancel'>Cancel</button>
 			<input class='btn normal' type='submit' value='Submit' />
+			<div class='btn-tb ico-last'></div>
 			<!--<table class=''>
 				<thead>
 					<tr>
