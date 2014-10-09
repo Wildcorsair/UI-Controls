@@ -20,7 +20,7 @@
 	</head>
 	<body>
 		<div id="wrapper">
-			<div class='window-frame dialog'>
+			<div class='window-frame blue dialog'>
 				<div class='caption blue'>
 					Dialog window
 					<button class='btn-tb f-right ico-down'></button>
@@ -34,6 +34,20 @@
 				</p>
 				<div class='btn-bar'>
 					<button class='btn normal primary'>Save</button>
+					<button class='btn normal'>Cancel</button>
+				</div>
+			</div>
+			<br />
+			<div class='window-frame grey dialog'>
+				<div class='caption grey'>
+					Dialog window
+					<button class='btn-tb f-right ico-down'></button>
+				</div>
+				<p class='dialog'>
+					На форуме часто задают вопросы какой хостинг выбрать.
+				</p>
+				<div class='btn-bar'>
+					<button class='btn normal primary'>Confirm</button>
 					<button class='btn normal'>Cancel</button>
 				</div>
 			</div>

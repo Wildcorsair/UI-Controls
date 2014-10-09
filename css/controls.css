@@ -110,7 +110,7 @@ button, a {
 
 
 /* Gray color table styles */
-table.gray-table {
+table.grey-table {
 	width: 100%;
 	border-spacing: 1px;
 	border-collapse: separate;
@@ -118,26 +118,26 @@ table.gray-table {
 	font-family: Arial, Tahoma, Helvetica, sans-serif;
 	font-size: 13px;
 }
-.gray-table thead, tfoot {
+.grey-table thead, tfoot {
 	color: #7c7c7c;
 	background-color: #eee;
 }
-.gray-table thead th, tfoot td {
+.grey-table thead th, tfoot td {
 	padding: 7px;
 }
-.gray-table tbody {
+.grey-table tbody {
 	color: #6b6b6b;
 	background-color: #fff;				
 }
-.gray-table tbody td {
+.grey-table tbody td {
 	padding: 3px;
 }
-.gray-table tfoot td div.counter {
+.grey-table tfoot td div.counter {
 	margin: 8px 0 0 0;
 	height: 24px;
 	float: right;
 }
-.gray-table tfoot td div.pagination {
+.grey-table tfoot td div.pagination {
 	margin: 3px;
 	float: left;
 }
@@ -254,6 +254,9 @@ button.btn.large {
 /* End of button's types styles */
 
 /* Windows styles */
+/*
+* #25687F, #77DBFF, #4BCFFF, #54747F, #3CA6CC
+*/
 .window-frame {
 	width: 100%;
 	height: 100%;
@@ -261,24 +264,31 @@ button.btn.large {
 	font-family: Arial, Tahoma, Helvetica, sans-serif;
 	font-size: 14px;
 	position: relative;
-	border: 1px solid #aaa;
+}
+.window-frame.grey {
+	border: 1px solid #AAA;
 	background-color: #eee;
+}
+.window-frame.blue {
+	border: 1px solid #3CA6CC;
+	background-color: #fff;
 }
 .window-frame > .caption {
 	padding: 3px 3px 3px 11px;
 	width: 97,5%;
 	height: 29px;
 	line-height: 29px;
-	border-bottom: 1px solid #aaa;
 }
 
 .window-frame > .caption.grey {
+	border-bottom: 1px solid #aaa;
 	background-color: #ccc;
 }
 
 .window-frame > .caption.blue {
 	color: #fff;
-	background-color: #39acf4;
+	border-bottom: 1px solid #3CA6CC;
+	background-color: #4BCFFF; /*#39acf4;*/
 }
 
 .window-frame > .btn-bar {
@@ -341,16 +351,13 @@ div.dropdown {
 	position: relative;
 	background-color: #fff;
 	display: inline-block;
-	z-index: 0;
-	opacity: 0.99;
-
 }
 div.dropdown .dd-btn {
 	height: 24px;
 	width: 24px;
 	position: absolute;
-	top: 0;
-	right: 0;
+	right: 1px;
+	top: 2px;
 }
 div.dropdown input {
 	width: 90%;
@@ -358,9 +365,7 @@ div.dropdown input {
 	color: #555;
 	font-family: Arial, Tahoma, Helvetica, sans-serif;
 	font-size: 14px;
-	/*position: relative;
-	z-index: 50;
-	opacity: .99;*/
+	position: relative;
 }
 div.items {
 	padding: 0;
@@ -373,7 +378,6 @@ div.items {
 	overflow-y: auto;
 	overflow-x: hidden;
 	background-color: #fff;
-	z-index: 100;
 }
 
 div.items ul {

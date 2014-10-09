@@ -25,8 +25,8 @@
     <body>
         <form action='check.php' method='POST'>
         <div id="wrapper">
-            <div class='window-frame'>
-                <div class='caption'>Test</div>
+            <div class='window-frame blue'>
+                <div class='caption blue'>Test</div>
                     <div class='workspace'> 
                         User Name:&nbsp<input type='text' name='uname' size='25'
                                                 class='text-field' tabindex='1'>
