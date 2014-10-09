@@ -21,7 +21,7 @@
 	<body>
 		<div id="wrapper">
 			<div class='window-frame dialog'>
-				<div class='caption'>
+				<div class='caption blue'>
 					Dialog window
 					<button class='btn-tb f-right ico-down'></button>
 				</div>

@@ -267,12 +267,20 @@ button.btn.large {
 .window-frame > .caption {
 	padding: 3px 3px 3px 11px;
 	width: 97,5%;
-	/*width: 336px;*/
 	height: 29px;
 	line-height: 29px;
 	border-bottom: 1px solid #aaa;
+}
+
+.window-frame > .caption.grey {
 	background-color: #ccc;
 }
+
+.window-frame > .caption.blue {
+	color: #fff;
+	background-color: #39acf4;
+}
+
 .window-frame > .btn-bar {
 	width: inherit;
 	height: 36px;
