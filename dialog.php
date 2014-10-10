@@ -21,7 +21,7 @@
 	<body>
 		<div id="wrapper">
 			<div class='window-frame blue dialog'>
-				<div class='caption blue'>
+				<div class='caption'>
 					Dialog window
 					<button class='btn-tb f-right ico-down'></button>
 				</div>
@@ -39,7 +39,7 @@
 			</div>
 			<br />
 			<div class='window-frame grey dialog'>
-				<div class='caption grey'>
+				<div class='caption'>
 					Dialog window
 					<button class='btn-tb f-right ico-down'></button>
 				</div>

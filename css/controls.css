@@ -280,7 +280,16 @@ button.btn.large {
 	line-height: 29px;
 }
 
-.window-frame > .caption.grey {
+.window-frame.grey > .caption {
+	border-bottom: 1px solid #aaa;
+	background-color: #ccc;
+}
+.window-frame.blue > .caption {
+	color: #fff;
+	border-bottom: 1px solid #3CA6CC;
+	background-color: #4BCFFF;
+}
+/*.window-frame > .caption.grey {
 	border-bottom: 1px solid #aaa;
 	background-color: #ccc;
 }
@@ -288,8 +297,8 @@ button.btn.large {
 .window-frame > .caption.blue {
 	color: #fff;
 	border-bottom: 1px solid #3CA6CC;
-	background-color: #4BCFFF; /*#39acf4;*/
-}
+	background-color: #4BCFFF; /*#39acf4;
+}*/
 
 .window-frame > .btn-bar {
 	width: inherit;

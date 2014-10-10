@@ -20,7 +20,7 @@
 	</head>
 	<body>
 		<div id="wrapper">
-			<table class='gray-table'>
+			<table class='grey-table'>
 				<thead>
 					<tr>
 						<th colspan='5'>Таблица пользователей</th>

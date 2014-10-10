@@ -10,7 +10,9 @@ $(document).ready(function() {
 
 	$('.dropdown').click(function() {
 		var id = $(this).attr('id');
-		$('.items[id="'+id+'"]').toggle();
+		var itemsBlock = $('.items[id="'+id+'"]');
+		itemsBlock.css('zIndex', 100);
+		itemsBlock.toggle();
 	});
 	
 	$('li').click(function() {
