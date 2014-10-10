@@ -289,17 +289,6 @@ button.btn.large {
 	border-bottom: 1px solid #3CA6CC;
 	background-color: #4BCFFF;
 }
-/*.window-frame > .caption.grey {
-	border-bottom: 1px solid #aaa;
-	background-color: #ccc;
-}
-
-.window-frame > .caption.blue {
-	color: #fff;
-	border-bottom: 1px solid #3CA6CC;
-	background-color: #4BCFFF; /*#39acf4;
-}*/
-
 .window-frame > .btn-bar {
 	width: inherit;
 	height: 36px;
@@ -360,6 +349,9 @@ div.dropdown {
 	position: relative;
 	background-color: #fff;
 	display: inline-block;
+}
+div.dropdown:hover .dd-btn {
+	background-position: -288px -24px;
 }
 div.dropdown .dd-btn {
 	height: 24px;
