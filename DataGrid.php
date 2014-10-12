@@ -3,11 +3,11 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" 
-				href="http://dbtest.org/UI-Controls/css/controls.css">
+				href="http://UI-Controls/css/controls.css">
 		<script type="text/javascript" 
-				src="http://dbtest.org/UI-Controls/js/jquery-1.11.0.min.js"></script>
+				src="http://UI-Controls/js/jquery-1.11.0.min.js"></script>
 		<script type="text/javascript" 
-				src="http://dbtest.org/UI-Controls/js/function.js"></script>
+				src="http://UI-Controls/js/function.js"></script>
 		<style>
 			#wrapper {
 				width: 790px;

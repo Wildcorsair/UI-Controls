@@ -33,46 +33,95 @@
                         <br /><br />
                         <label>User Login:&nbsp<input type='text' name='ulogin' 
                                         size='25' class='text-field'></label>
-                                        <br /><br />
-                        <label>User Group</label>
-                        <div id='2' class='dropdown'>
-                            <input class='font-bold' type='text' 
-                                    name='grpVal' value='Пользователь'>
-                            <input type='hidden' name='grpId' value='3'>
-                            <div class='dd-btn ico-down'></div>                     
-                            <div class='items' id='2'>
-                                <ul>
-                                    <li data-value='1'>Администратор</li>
-                                    <li data-value='2'>Модератор</li>
-                                    <li data-value='3'>Пользователь</li>
-                                    <li data-value='4'>Супер-супер-супер пользователь</li>
-                                    <li data-value='5'>Автор статей</li>
-                                    <li data-value='6'>Гость</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <br /><br />                        
-                        User permissions
-                        <div id='1' class='dropdown'>
-                            <input class='' type='text' 
-                                    name='prmVal' value='Select ...'>
-                            <input type='hidden' name='prmId' value='1'>
-                            <div class='dd-btn ico-down'></div>                     
-                            <div class='items' id='1'>
-                                <ul>
-                                    <li data-value='read'>Чтение</li>
-                                    <li data-value='write'>Запись</li>
-                                    <li data-value='full'>Полный доступ</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <br /><br />
-                        <div>
-                            <label>User age:&nbsp<input type='text' name='uage' 
-                                        size='6' class='text-field'></label>
-                                        <br /><br />
-                        </div>
-
+                    <table class='form-controls-grid'>
+                        <tr>
+                            <td>
+                                User
+                            </td>
+                            <td>
+                                <div id='4' class='dropdown'>
+                                    <input class='' type='text' 
+                                            name='prmVal' value='Select ...'>
+                                    <input type='hidden' name='prmId' value='1'>
+                                    <div class='dd-btn ico-down'></div>                     
+                                    <div class='items' id='4'>
+                                        <ul>
+                                            <li data-value='read'>Чтение</li>
+                                            <li data-value='write'>Запись</li>
+                                            <li data-value='full'>Полный доступ</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>User Group</label>
+                            </td>
+                            <td>
+                                <div id='3' class='dropdown'>
+                                    <input class='font-bold' type='text' 
+                                        name='grpVal' value='Пользователь'>
+                                    <input type='hidden' name='grpId' value='3'>
+                                    <div class='dd-btn ico-down'></div>                     
+                                    <div class='items' id='3'>
+                                        <ul>
+                                            <li data-value='1'>Администратор</li>
+                                            <li data-value='2'>Модератор</li>
+                                            <li data-value='3'>Пользователь</li>
+                                            <li data-value='4'>Супер-супер-супер пользователь</li>
+                                            <li data-value='5'>Автор статей</li>
+                                            <li data-value='6'>Гость</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>User Group</label>
+                            </td>
+                            <td>
+                                <div id='2' class='dropdown'>
+                                    <input class='font-bold' type='text' 
+                                        name='brVal' value='Станционное'>
+                                    <input type='hidden' name='brId' value='3'>
+                                    <div class='dd-btn ico-down'></div>                     
+                                    <div class='items' id='2'>
+                                        <ul>
+                                            <li data-value='1'>Станционное</li>
+                                            <li data-value='2'>Линейное</li>
+                                            <li data-value='3'>Абонентское</li>
+                                            <li data-value='4'>Патогенное</li>
+                                            <li data-value='5'>Ремонтно-проффилактические работы</li>
+                                            <li data-value='6'>Неизвестная причина</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>User type</label>
+                            </td>
+                            <td>
+                                <select>
+                                    <option>Param 1</option>
+                                    <option>Param 2</option>
+                                    <option>Param 3</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>User age</label>
+                            </td>
+                            <td>
+                                <input type='text' name='uage' 
+                                        size='6' class='text-field'>
+                            </td>
+                        </tr>
+                    </table>
                     </div>
                 <div class='btn-bar'>
                     <button class='btn normal primary' type='submit' name='save'>Save</button>

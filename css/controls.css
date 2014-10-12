@@ -11,14 +11,14 @@ input[type="submit"]::-moz-focus-inner {
 
 
 button, input {
-	border: none;
+	border: 0;
 	outline: none;
 	margin: 0;
 	padding: 0;
 	text-transform: none;
 }
 
-button, a {
+button, a, input[type='submit'] {
 	font-size: 13px;
 	font-family: Arial, Tahoma, Helvetica, sans-serif;
 	cursor: pointer;
@@ -350,9 +350,6 @@ div.dropdown {
 	background-color: #fff;
 	display: inline-block;
 }
-div.dropdown:hover .dd-btn {
-	background-position: -288px -24px;
-}
 div.dropdown .dd-btn {
 	height: 24px;
 	width: 24px;
@@ -360,13 +357,20 @@ div.dropdown .dd-btn {
 	right: 1px;
 	top: 2px;
 }
+div.dropdown:hover .dd-btn {
+	background-position: -288px -24px;
+}
 div.dropdown input {
-	width: 90%;
+	width: 88%;
+	height: 24px;
+	line-height: 24px;
 	cursor: default;
 	color: #555;
 	font-family: Arial, Tahoma, Helvetica, sans-serif;
 	font-size: 14px;
-	position: relative;
+	position: absolute;
+	top: 2px;
+	left: 2px;
 }
 div.items {
 	padding: 0;

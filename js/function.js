@@ -10,9 +10,10 @@ $(document).ready(function() {
 
 	$('.dropdown').click(function() {
 		var id = $(this).attr('id');
+		$(this).css('zIndex', id);
 		var itemsBlock = $('.items[id="'+id+'"]');
-		itemsBlock.css('zIndex', 100);
-		itemsBlock.toggle();
+		itemsBlock.css('zIndex', 100).toggle();
+		//itemsBlock.toggle();
 	});
 	
 	$('li').click(function() {
@@ -25,14 +26,4 @@ $(document).ready(function() {
 	/*
 		Конец рабочего кода
 	*/
-
 }); //End of ready
-
-function getElement() {
-	var obj = $('.window-frame');
-	return obj;
-}
-
-function onOpen() {
-	$('<div class="item">Item1</div>').appendTo('.dropdown');
-}
