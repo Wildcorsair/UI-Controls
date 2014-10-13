@@ -13,7 +13,6 @@ $(document).ready(function() {
 		$(this).css('zIndex', id);
 		var itemsBlock = $('.items[id="'+id+'"]');
 		itemsBlock.css('zIndex', 100).toggle();
-		//itemsBlock.toggle();
 	});
 	
 	$('li').click(function() {

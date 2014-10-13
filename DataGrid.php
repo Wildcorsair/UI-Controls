@@ -23,7 +23,7 @@
 			<table class='grey-table'>
 				<thead>
 					<tr>
-						<th colspan='5'>Таблица пользователей</th>
+						<th class='title' colspan='5'>Таблица пользователей</th>
 					</tr>
 					<tr>
 						<th>ID</th>
@@ -35,7 +35,7 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td class='ra'>24578</td>
+						<td class='c-align'>24578</td>
 						<td>Владимир</td>
 						<td>delawar</td>
 						<td class='btn-cont'>
@@ -46,7 +46,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td class='ra'>24878</td>
+						<td class='c-align'>24878</td>
 						<td>Остап Иванович</td>
 						<td>ostap</td>
 						<td class='btn-cont'>

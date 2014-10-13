@@ -125,6 +125,9 @@ table.grey-table {
 .grey-table thead th, tfoot td {
 	padding: 7px;
 }
+.grey-table thead th.title {
+	font-size: 1.2em;
+}
 .grey-table tbody {
 	color: #6b6b6b;
 	background-color: #fff;				
@@ -144,6 +147,9 @@ table.grey-table {
 tbody td.r-align {
 	text-align: right;
 }
+tbody td.c-align {
+	text-align: center;
+}
 tbody td.btn-cont {
 	width: 24px;
 }
@@ -161,10 +167,15 @@ tbody td.btn-cont {
 	line-height: 24px;
 	/*border: 1px solid #bbb;*/
 }
-
+.caption .btn-tb {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+}
 .btn-tb:hover {
 	color: #f34a53;
 }
+
 
 a.btn-tb {
 	text-decoration: none;
