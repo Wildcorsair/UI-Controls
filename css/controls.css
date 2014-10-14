@@ -275,6 +275,7 @@ button.btn.large {
 	font-family: Arial, Tahoma, Helvetica, sans-serif;
 	font-size: 14px;
 	position: relative;
+	/*position: absolute;*/
 }
 .window-frame.grey {
 	border: 1px solid #AAA;
@@ -387,7 +388,8 @@ div.items {
 	padding: 0;
 	display: none;
 	border: 1px solid #aaa;
-	height: 72px;
+	min-height: 24px;
+	max-height: 72px;
 	position: absolute;
 	top: 28px;
 	left: -1px;
