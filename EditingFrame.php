@@ -121,6 +121,14 @@
                                         size='6' class='text-field'>
                             </td>
                         </tr>
+                        <tr>
+                            <td>
+                                <label>Description</label>
+                            </td>
+                            <td>
+                                <textarea name='uage' class='text-field'></textarea>
+                            </td>
+                        </tr>                        
                     </table>
                     </div>
                 <div class='btn-bar'>
