@@ -126,7 +126,7 @@
                                 <label>Description</label>
                             </td>
                             <td>
-                                <textarea name='uage' class='text-field'></textarea>
+                                <textarea name='uage'></textarea>
                             </td>
                         </tr>                        
                     </table>

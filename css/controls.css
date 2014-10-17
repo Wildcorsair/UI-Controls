@@ -446,7 +446,6 @@ div.items li:hover {
 .window-frame textarea {
 	color: #555;
 	padding: 2px;
-	/*height: 72px;*/
 	line-height: 24px;
 	border: 1px solid #aaa;
 	font-family: Arial, Tahoma, Helvetica, sans-serif;
