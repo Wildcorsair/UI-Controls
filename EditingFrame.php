@@ -11,7 +11,7 @@
         <style>
             #wrapper {
                 width: 790px;
-                height: 490px;
+                height: 520px;
                 margin: 0 auto;
                 background-color: #ddd;
                 padding: 5px;
@@ -59,7 +59,7 @@
                                 <label>User Group</label>
                             </td>
                             <td>
-                                <div id='3' class='dropdown'>
+                                <div id='3' class='dropdown f-left'>
                                     <input class='font-bold' type='text' 
                                         name='grpVal' value='Пользователь'>
                                     <input type='hidden' name='grpId' value='3'>
@@ -75,6 +75,8 @@
                                         </ul>
                                     </div>
                                 </div>
+                                <input type='text' name='uage' size='6'
+                                       class='text-field'>                                
                             </td>
                         </tr>
                         <tr>

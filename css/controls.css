@@ -5,7 +5,7 @@ textarea::-moz-focus-inner,
 input[type="reset"]::-moz-focus-inner,
 input[type="button"]::-moz-focus-inner,
 input[type="submit"]::-moz-focus-inner,
-input[type="submit"]::-moz-focus-inner {
+input[type="hidden"]::-moz-focus-inner {
 	padding: 0;
 	border: 0;
 }
@@ -41,6 +41,13 @@ input[type='submit'] {
 }
 
 /* Icons styles */
+.ico-date {
+	background: url("../images/icons_sprite.png") no-repeat;
+	background-position: -144px 0;
+}
+.ico-date:hover {
+	background-position: -144px -24px;
+}
 .ico-first {
 	background: url("../images/icons_sprite.png") no-repeat;
 	background-position: -168px 0;
@@ -379,10 +386,11 @@ div.dropdown .dd-btn {
 div.dropdown:hover .dd-btn {
 	background-position: -288px -24px;
 }
-div.dropdown input {
-	width: 88%;
+div.dropdown>input {
+	width: 87%;
 	height: 24px;
 	line-height: 24px;
+	margin-left: 3px;
 	cursor: default;
 	color: #555;
 	font-family: Arial, Tahoma, Helvetica, sans-serif;
@@ -423,34 +431,20 @@ div.items li:hover {
 
 /*
 	TextEdit текстовое поле
+	TextArea область ввода
 */
-.window-frame input.text-field {
+.window-frame input.text-field,
+.window-frame textarea {
 	color: #555;
 	padding: 2px;
 	height: 24px;
 	line-height: 24px;
-	-o-line-height: 24px;
 	border: 1px solid #aaa;
 	font-family: Arial, Tahoma, Helvetica, sans-serif;
 	font-size: 14px;
 }
 
-.window-frame input.text-field:focus {
-	color: #318aa6;
-	border: 1px solid #52ccf4;
-}
-
-/*
-	Textarea область ввода
-*/
-.window-frame textarea {
-	color: #555;
-	padding: 2px;
-	line-height: 24px;
-	border: 1px solid #aaa;
-	font-family: Arial, Tahoma, Helvetica, sans-serif;
-	font-size: 14px;
-}
+.window-frame input.text-field:focus,
 .window-frame textarea:focus {
 	color: #318aa6;
 	border: 1px solid #52ccf4;
@@ -460,12 +454,122 @@ div.items li:hover {
 	Размер шрифта в контролах
 */
 input.text-field .font-bold,
-div.dropdown .font-bold {
+div.dropdown .font-bold,
+div.dt-picker .font-bold {
 	font-family: Arial, Tahoma, Helvetica, sans-serif;
-	font-size: 13px;
+	font-size: 14px;
 	font-weight: bold;
 }
 
 label {
 	display: inline-block;
+}
+
+/*
+	DateTimePicker дата и время
+*/
+div.dt-picker {
+	width: 175px;
+	height: 24px;
+	padding: 2px;
+	line-height: 24px;
+	position: relative;
+	border: 1px solid #aaa;
+	background-color: #fff;
+}
+div.dt-picker>input {
+	width: 82%;
+	height: 24px;
+	line-height: 24px;
+	margin-left: 3px;
+	cursor: default;
+	color: #555;
+	font-family: Arial, Tahoma, Helvetica, sans-serif;
+	font-size: 14px;
+	position: absolute;
+	top: 2px;
+	left: 2px;
+}
+div.dt-picker .dt-btn {
+	height: 24px;
+	width: 24px;
+	position: absolute;
+	right: 1px;
+	top: 2px;
+	cursor: pointer;
+}
+div.dt-picker:hover .dt-btn {
+	background-position: -144px -24px;
+}
+div.dt-conteiner {
+	display: none;
+	position: absolute;
+	top: 28px;
+	left: -1px;
+	/*left: 50px;*/
+	color: #555;
+	width: 179px;
+	border: 1px solid #aaa;
+	font-family: Arial, Tahoma, Verdana, sans-serif;
+	font-size: 15px;
+	background-color: #fff;
+}
+div.month {
+	width: 72px;
+	height: 24px;
+	line-height: 24px;
+	text-align: center;
+	/*background-color: #999;*/
+}
+div.year {
+	width: 35px;
+	height: 24px;
+	line-height: 24px;
+	/*background-color: #999;*/
+}
+table.dt-picker {
+	margin: 3px;
+	border-spacing: 1px;
+	background-color: #aaa;
+}
+table.dt-picker th {
+	width: 22px;
+	font-family: Arial, Tahoma, Verdana, sans-serif;
+	font-size: 14px;	
+	background-color: #dedede;
+}
+table.dt-picker td {
+	cursor: pointer;
+	text-align: center;
+	background-color: #ccc;
+}
+table.dt-picker td:hover {
+	color: #fff;
+	background-color: #F34A53;
+}
+table.dt-picker td.prev-month,
+table.dt-picker td.next-month {
+	color: #ddd;
+	background-color: #bbb;
+}
+div.time-block {
+	width: 167px;
+	height: 26px;
+	margin: 0 3px 3px 3px;
+	padding: 2px;
+	background-color: #ddd;
+	border: 1px solid #aaa;
+}
+div.time-block input {
+	height: 20px;
+	line-height: 20px;
+	padding: 2px;
+	color: #555;
+	border: 1px solid #bbb;
+}
+div.time-block input.hour,
+div.time-block input.min,
+div.time-block input.sec {
+	text-align: center;
+	width: 20px;
 }

@@ -25,4 +25,7 @@ $(document).ready(function() {
 	/*
 		Конец рабочего кода
 	*/
+	$('div.dt-picker').click(function() {
+		$('.dt-conteiner').toggle();
+	});
 }); //End of ready
