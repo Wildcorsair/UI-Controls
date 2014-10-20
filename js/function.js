@@ -13,6 +13,7 @@ $(document).ready(function() {
 		$(this).css('zIndex', id);
 		var itemsBlock = $('.items[id="'+id+'"]');
 		itemsBlock.css('zIndex', 100).toggle();
+		//itemsBlock.css('zIndex', 100).show();
 	});
 	
 	$('li').click(function() {
@@ -25,6 +26,24 @@ $(document).ready(function() {
 	/*
 		Конец рабочего кода
 	*/
+	/*$(document).click(function(event) {
+		if ($(event.target).closest('.items').length ||
+			$(event.target).closest('.dropdown').length) {
+			return;
+		}
+		$('.items').hide();
+		event.stopPropagation();
+	});*/
+	$(window).click(function(event) {
+		if ($(event.target).closest('.items').length ||
+			$(event.target).closest('.dropdown').length) {
+			//console.log('te');
+			return;
+		}
+		$('.items').hide();
+		event.stopPropagation();
+	});
+
 	$('div.dt-picker').click(function() {
 		$('.dt-conteiner').toggle();
 	});
