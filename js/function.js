@@ -35,13 +35,20 @@ $(document).ready(function() {
 		event.stopPropagation();
 	});*/
 	$(window).click(function(event) {
-		if ($(event.target).closest('.items').length ||
-			$(event.target).closest('.dropdown').length) {
+		var myEvent = event || window.event;
+		var myEvent2 = myEvent.target || myEvent.srcElement;
+		console.log($(myEvent));
+		/*if ($(even.target).closest('.items').length ||
+			$(even.target).closest('.dropdown').length) {
 			//console.log('te');
+			return;
+		}*/
+		if ($(myEvent2).closest('.items').length ||
+			$(myEvent2).closest('.dropdown').length) {
 			return;
 		}
 		$('.items').hide();
-		event.stopPropagation();
+		myEvent.stopPropagation();
 	});
 
 	$('div.dt-picker').click(function() {
