@@ -6,8 +6,7 @@
                 href="css/controls.css">
         <script type="text/javascript" 
                 src="js/jquery-1.11.0.min.js"></script>
-        <script type="text/javascript" 
-                src="js/function.js"></script>
+
         <style>
             #wrapper {
                 width: 790px;
@@ -40,7 +39,7 @@
                             </td>
                             <td>
                                 <div id='4' class='dropdown'>
-                                    <input class='' type='text' 
+                                    <input class='ddValue' type='text' 
                                             name='prmVal' value='Select ...'>
                                     <input type='hidden' name='prmId' value='1'>
                                     <div class='dd-btn ico-down'></div>                     
@@ -60,7 +59,7 @@
                             </td>
                             <td>
                                 <div id='3' class='dropdown f-left'>
-                                    <input class='font-bold' type='text' 
+                                    <input class='ddValue font-bold' type='text' 
                                         name='grpVal' value='Пользователь'>
                                     <input type='hidden' name='grpId' value='3'>
                                     <div class='dd-btn ico-down'></div>                     
@@ -85,7 +84,7 @@
                             </td>
                             <td>
                                 <div id='2' class='dropdown'>
-                                    <input class='font-bold' type='text' 
+                                    <input class='ddValue font-bold' type='text' 
                                         name='brVal' value='Станционное'>
                                     <input type='hidden' name='brId' value='3'>
                                     <div class='dd-btn ico-down'></div>                     
@@ -141,4 +140,6 @@
         </div>
         </form>
     </body>
+            <script type="text/javascript" 
+                src="js/function.js"></script>
 </html>
