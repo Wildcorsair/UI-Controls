@@ -39,7 +39,7 @@
                             </td>
                             <td>
                                 <div id='4' class='dropdown'>
-                                    <input class='ddValue' type='text' 
+                                    <input class='ddValue' type='text' readonly
                                             name='prmVal' value='Select ...'>
                                     <input type='hidden' name='prmId' value='1'>
                                     <div class='dd-btn ico-down'></div>                     

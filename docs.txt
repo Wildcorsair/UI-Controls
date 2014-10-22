@@ -1,0 +1,48 @@
+/*
+*  Пример обработки события
+*  
+*/
+
+$(document).click(function(e) {
+   // Получаем событие
+   var myEvent = e || window.e;
+   /* 
+   *  Получаем объект: для нормальных браузеров myEvent.target
+   *  для IE myEvent.srcElement так как target он не понимает
+   */
+   var myEvent2 = myEvent.target || myEvent.srcElement;
+   /* 
+   *  Для того чтобы получить Имя тега нужно вызывать или
+   *  myEvent2.tagName или myEvent.target.tagName, но для того
+   *  чтобы добиться кроссбраузерности нужно использовать первый
+   *  вариант, тоже самое и при получении Имени класса
+   *  myEvent2.className или myEvent.target.className
+   */
+   if (myEvent2.tagName == 'INPUT' && myEvent2.className == 'ddValue') {
+       /*  
+       *  тут мы получем ID елемента с классом dropdown, который
+       *  находится выше в иерархии DOM
+       */
+       var id = $(myEvent2).closest('.dropdown').attr('id');
+   }
+
+   if (myEvent2.tagName == 'DIV' && myEvent2.className == 'dropdown') {
+       // тут получем ID елемента на котором произошло событие
+       var id = $(myEvent2).attr('id');
+   }
+
+   //получаем ID видимого елемента
+   var itemsId = $('.items:visible').attr('id');
+
+   if ($(even.target).closest('.items').length ||
+       $(even.target).closest('.dropdown').length) {
+       return;
+   }
+   
+   /*
+   *  Отменяем передачу события вверх по цепочке DOM
+   *  эта функция вызывается на "чистом" событии, а не
+   *  из того объекта который мы получили из myEvent.target
+   */
+   myEvent.stopPropagation();
+});
