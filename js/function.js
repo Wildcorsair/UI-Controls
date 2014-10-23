@@ -68,6 +68,35 @@ $(document).ready(function() {
 	*/
 
 	$('div.dt-picker').click(function() {
-		$('.dt-conteiner').toggle();
+		var id = this.id;
+		drawCalendar();
+		$('.dt-conteiner[id="'+id+'"]').css('zIndex', 100).show();
+	});
+	
+	$('.dt-calendar').on('click', 'td', function(e) {
+		e.stopPropagation();
+		$('.dt-conteiner').hide();
 	});
 }); //End of ready
+
+function drawCalendar() {
+	var month = {
+					0: 'Январь',
+					1: 'Февраль',
+					2: 'Март',
+					3: 'Апрель',
+					4: 'Май',
+					5: 'Июнь',
+					6: 'Июль',
+					7: 'Август',
+					8: 'Сентябрь',
+					9: 'Октябрь',
+				   10: 'Ноябрь',
+				   11: 'Декабрь'
+	}
+	var today = new Date();
+	var todayDate = today.getDate()+'-'+
+					(today.getMonth()+1)+'-'+
+					today.getFullYear();
+	console.log(todayDate);
+}
