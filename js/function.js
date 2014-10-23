@@ -81,22 +81,26 @@ $(document).ready(function() {
 
 function drawCalendar() {
 	var month = {
-					0: 'Январь',
-					1: 'Февраль',
-					2: 'Март',
-					3: 'Апрель',
-					4: 'Май',
-					5: 'Июнь',
-					6: 'Июль',
-					7: 'Август',
-					8: 'Сентябрь',
-					9: 'Октябрь',
-				   10: 'Ноябрь',
-				   11: 'Декабрь'
+					0: ['Январь', 31],
+					1: ['Февраль', 28],
+					2: ['Март', 31],
+					3: ['Апрель', 30],
+					4: ['Май', 31],
+					5: ['Июнь', 30],
+					6: ['Июль', 31],
+					7: ['Август', 31],
+					8: ['Сентябрь', 30],
+					9: ['Октябрь', 31],
+				   10: ['Ноябрь', 30],
+				   11: ['Декабрь', 31]
 	}
 	var today = new Date();
-	var todayDate = today.getDate()+'-'+
-					(today.getMonth()+1)+'-'+
-					today.getFullYear();
-	console.log(todayDate);
+	var cYear = today.getFullYear();
+	if (cYear % 4 == 0) {
+		console.log('Высокостный');
+	} else {
+		console.log('Не высокостный');
+	}
+	var monthLiteral = month[today.getMonth()][0];
+	console.log(monthLiteral);
 }
