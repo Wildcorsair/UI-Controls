@@ -69,8 +69,10 @@ $(document).ready(function() {
 
 	$('div.dt-picker').click(function() {
 		var id = this.id;
-		drawCalendar();
+		//drawCalendar();
 		$('.dt-conteiner[id="'+id+'"]').css('zIndex', 100).show();
+		//$('.dt-conteiner').html(drawCalendar());
+		t.test();
 	});
 	
 	$('.dt-calendar').on('click', 'td', function(e) {
@@ -99,24 +101,53 @@ function drawCalendar() {
 	var cYear = today.getFullYear();
 	var firstDayStr = cYear+'/'+mon+'/1';
 	var firstDay = new Date(firstDayStr);
+	var firstDayNum = firstDay.getDay();
 	
-	console.log(firstDayStr);
+	/*console.log(firstDayStr);
 	console.log('Номер дня первого числа: '+firstDay.getDay());
-	console.log('Номер дня сегодняшнего число: '+today.getDay());
+	console.log('Номер дня сегодняшнего числа: '+today.getDay());*/
+	
+	var prevMonthDays = month[today.getMonth()-1][1];
+	var currentMonthDays = month[today.getMonth()][1];
+
+	var prevMonthOffset = prevMonthDays - 2;
+
+	/*if (today.getMonth() == 1) {
+		currentMonthDays = getFebruaryDaysCount(cYear);
+	}
+	if ((today.getMonth()-1) == 1) {
+		prevMonthDays = getFebruaryDaysCount(cYear);
+	}*/
+	
 	if (today.getMonth() == 1) {
 		if (cYear % 4 == 0) {
 			currentMonthDays = 29;
-		} else {
-			currentMonthDays = month[today.getMonth()][1];
 		}
 	}
-	if (cYear % 4 == 0) {
-		console.log('Высокостный');
-	} else {
-		console.log('Не высокостный');
+	if ((today.getMonth()-1) == 1) {
+		if (cYear % 4 == 0) {
+			prevMonthDays = 29;
+		}
 	}
-	var prevMonth = month[today.getMonth()-1][1];
-	var currentMonth = month[today.getMonth()][1];
-	console.log('К-ство дней в предыдущем месяце: '+prevMonth);
-	console.log('К-ство дней в текущем месяце: '+currentMonth);
+
+	var res = '<table class="dt-calendar"><tr>';
+
+	for (var i = 0; i < 7; i++) {
+		res += '<td>'+i+'</td>';
+	};
+	res +='</tr></table>';
+	console.log('К-ство дней в предыдущем месяце: '+prevMonthDays);
+	console.log('К-ство дней в текущем месяце: '+currentMonthDays);
+	return res;
 }
+
+function getFebruaryDaysCount(year) {
+	if (year % 4 == 0) {
+		return 29;
+	}
+}
+
+var t = {}
+	t.test = function() {
+				console.log('Qu!Qu!');
+	}
