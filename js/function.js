@@ -71,11 +71,11 @@ $(document).ready(function() {
 		var id = this.id;
 		//drawCalendar();
 		$('.dt-conteiner[id="'+id+'"]').css('zIndex', 100).show();
-		//$('.dt-conteiner').html(drawCalendar());
-		t.test();
+		$('.dt-conteiner table tbody').html(drawCalendar());
+		//t.test();
 	});
 	
-	$('.dt-calendar').on('click', 'td', function(e) {
+	$('.dt-calendar').on('click', 'td[class="cm"]', function(e) {
 		e.stopPropagation();
 		$('.dt-conteiner').hide();
 	});
@@ -103,14 +103,17 @@ function drawCalendar() {
 	var firstDay = new Date(firstDayStr);
 	var firstDayNum = firstDay.getDay();
 	
+	if (firstDayNum == 0) {
+		firstDayNum = 7;
+	}
+	
 	/*console.log(firstDayStr);
-	console.log('Номер дня первого числа: '+firstDay.getDay());
+	console.log('Номер дня первого числа: '+firstDayNum);
 	console.log('Номер дня сегодняшнего числа: '+today.getDay());*/
 	
 	var prevMonthDays = month[today.getMonth()-1][1];
 	var currentMonthDays = month[today.getMonth()][1];
 
-	var prevMonthOffset = prevMonthDays - 2;
 
 	/*if (today.getMonth() == 1) {
 		currentMonthDays = getFebruaryDaysCount(cYear);
@@ -130,12 +133,31 @@ function drawCalendar() {
 		}
 	}
 
-	var res = '<table class="dt-calendar"><tr>';
+	var prevMonthOffset = prevMonthDays - (firstDayNum-2);
+	var res = '<tr>';
+	var currentMonthDay = 1;
+	var nextMonthDay = 1;
 
-	for (var i = 0; i < 7; i++) {
-		res += '<td>'+i+'</td>';
-	};
-	res +='</tr></table>';
+	for (var i = 1; i <= 42; i++) {
+		if (prevMonthOffset <= prevMonthDays) {
+			res += '<td class="prev-month">'+prevMonthOffset+'</td>';
+			prevMonthOffset++;
+		} else if (currentMonthDay <= currentMonthDays) {
+			res += '<td class="cm" data-value="'+currentMonthDay+'">'+currentMonthDay+'</td>';
+			currentMonthDay++;
+		} else {
+			res += '<td class="next-month">'+nextMonthDay+'</td>';
+			nextMonthDay++;
+		}
+		if (i % 7 == 0) {
+			res +='</tr>';
+		}
+		if (i % 7 == 0 && i != 42) {
+			res += '<tr>';
+		}
+	}
+
+	//res +='</tr>';
 	console.log('К-ство дней в предыдущем месяце: '+prevMonthDays);
 	console.log('К-ство дней в текущем месяце: '+currentMonthDays);
 	return res;
@@ -148,6 +170,6 @@ function getFebruaryDaysCount(year) {
 }
 
 var t = {}
-	t.test = function() {
-				console.log('Qu!Qu!');
-	}
+t.test = function() {
+			console.log('Qu!Qu!');
+}
