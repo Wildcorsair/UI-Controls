@@ -70,8 +70,9 @@ $(document).ready(function() {
 	$('div.dt-picker').click(function() {
 		var id = this.id;
 		//drawCalendar();
+		$(this).css('zIndex', id);
+		$('.dt-conteiner[id="'+id+'"] table tbody').html(drawCalendar());
 		$('.dt-conteiner[id="'+id+'"]').css('zIndex', 100).show();
-		$('.dt-conteiner table tbody').html(drawCalendar());
 		//t.test();
 	});
 	
@@ -80,17 +81,27 @@ $(document).ready(function() {
 			myEvent.stopPropagation();
 		var myTarget = myEvent.target || myEvent.srcElement;
 		var dd = ($(myTarget).data('value'));
+			if (dd < 10) {
+				dd = '0'+dd;
+			}
 		var mm = ($('.month').data('value'));
+			if (mm < 10) {
+				mm = '0'+mm;
+			}
 		var yy = ($('.year').data('value'));
-		var fullDate = dd+'-'+mm+'-'+yy;
+
 		var id = $(this).parents('.dt-conteiner').attr('id');
-			console.log(id);
+		var hour = $('div.dt-conteiner[id="'+id+'"] .time-block>input[name="hour"]').val();
+		var min = $('div.dt-conteiner[id="'+id+'"] .time-block>input[name="min"]').val();
+		var sec = $('div.dt-conteiner[id="'+id+'"] .time-block>input[name="sec"]').val();
+			//console.log(id);
+		var fullDate = dd+'-'+mm+'-'+yy+' '+hour+':'+min+':'+sec;
 		$('div[id="'+id+'"].dt-picker>input').val(fullDate);
 		$('.dt-conteiner').hide();
 	});
 
 	$('.dt-conteiner').on('click', 'button', function() {
-		console.log('Click prev button');
+		//console.log('Click prev button');
 	});
 }); //End of ready
 

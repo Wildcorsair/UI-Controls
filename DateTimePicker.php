@@ -94,12 +94,12 @@
                         </tr>
                     </table>
                     <div class='time-block'>
-                        <input class='hour' type='text' name='hour' length='2'
-                                value='00'>&nbsp:
-                        <input class='min' type='text' name='min' length='2'
-                                value='00'>&nbsp:
-                        <input class='sec' type='text' name='sec' length='2'
-                                value='00'>
+                        <input class='hour' type='text' name='hour'
+                                maxlength='2' value='00'>&nbsp:
+                        <input class='min' type='text' name='min' 
+                                maxlength='2' value='00'>&nbsp:
+                        <input class='sec' type='text' name='sec' 
+                                maxlength='2' value='00'>
                     </div>
                 </div>
             </div>
@@ -142,11 +142,11 @@
                         </tbody>
                     </table>
                     <div class='time-block'>
-                        <input class='hour' type='text' name='hour' length='2'
+                        <input class='hour' type='text' name='hour' maxlength='2'
                                 value='00'>&nbsp:
-                        <input class='min' type='text' name='min' length='2'
+                        <input class='min' type='text' name='min' maxlength='2'
                                 value='00'>&nbsp:
-                        <input class='sec' type='text' name='sec' length='2'
+                        <input class='sec' type='text' name='sec' maxlength='2'
                                 value='00'>
                     </div>
                 </div>
