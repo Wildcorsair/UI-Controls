@@ -115,7 +115,7 @@
                     <button class='btn-tb ico-prev f-left'></button>
                     <div class='month f-left'>Декабрь</div>
                     <button class='btn-tb ico-next f-left'></button>               
-                    <div class='year f-left'>2014</div>                
+                    <div class='year f-left'>2009</div>                
                     <button class='btn-tb ico-down'></button>
                     <table class='dt-calendar'>
                         <thead>

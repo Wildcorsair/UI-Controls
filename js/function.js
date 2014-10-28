@@ -7,7 +7,7 @@ $(document).ready(function() {
 	items.width(dropdown);
 
 	$('.dropdown input[type="text"]').attr({'readonly':'readonly'});
-	$('div.dt-picker input[type="text"]').attr({'readonly':'readonly'});
+	$('div.dt-picker>input[type="text"]').attr({'readonly':'readonly'});
 
 	$('.dropdown').click(function() {
 		var visibleItems = $('.items:visible');
@@ -76,8 +76,21 @@ $(document).ready(function() {
 	});
 	
 	$('.dt-calendar').on('click', 'td[class="cm"]', function(e) {
-		e.stopPropagation();
+		var myEvent = e || window.e;
+			myEvent.stopPropagation();
+		var myTarget = myEvent.target || myEvent.srcElement;
+		var dd = ($(myTarget).data('value'));
+		var mm = ($('.month').data('value'));
+		var yy = ($('.year').data('value'));
+		var fullDate = dd+'-'+mm+'-'+yy;
+		var id = $(this).parents('.dt-conteiner').attr('id');
+			console.log(id);
+		$('div[id="'+id+'"].dt-picker>input').val(fullDate);
 		$('.dt-conteiner').hide();
+	});
+
+	$('.dt-conteiner').on('click', 'button', function() {
+		console.log('Click prev button');
 	});
 }); //End of ready
 
@@ -100,6 +113,13 @@ function drawCalendar() {
 	var mon = today.getMonth()+1;
 	var cYear = today.getFullYear();
 	var firstDayStr = cYear+'/'+mon+'/1';
+	var monthDiv = $('.month');
+	var yearDiv = $('.year');
+	monthDiv.html(month[today.getMonth()][0])
+	monthDiv.data('value', mon);
+	yearDiv.html(cYear);
+	yearDiv.data('value', cYear);
+
 	var firstDay = new Date(firstDayStr);
 	var firstDayNum = firstDay.getDay();
 	
@@ -107,20 +127,12 @@ function drawCalendar() {
 		firstDayNum = 7;
 	}
 	
-	/*console.log(firstDayStr);
+	/*
 	console.log('Номер дня первого числа: '+firstDayNum);
 	console.log('Номер дня сегодняшнего числа: '+today.getDay());*/
 	
 	var prevMonthDays = month[today.getMonth()-1][1];
 	var currentMonthDays = month[today.getMonth()][1];
-
-
-	/*if (today.getMonth() == 1) {
-		currentMonthDays = getFebruaryDaysCount(cYear);
-	}
-	if ((today.getMonth()-1) == 1) {
-		prevMonthDays = getFebruaryDaysCount(cYear);
-	}*/
 	
 	if (today.getMonth() == 1) {
 		if (cYear % 4 == 0) {
@@ -157,9 +169,8 @@ function drawCalendar() {
 		}
 	}
 
-	//res +='</tr>';
-	console.log('К-ство дней в предыдущем месяце: '+prevMonthDays);
-	console.log('К-ство дней в текущем месяце: '+currentMonthDays);
+	/*console.log('К-ство дней в предыдущем месяце: '+prevMonthDays);
+	console.log('К-ство дней в текущем месяце: '+currentMonthDays);*/
 	return res;
 }
 
