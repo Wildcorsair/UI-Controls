@@ -73,7 +73,6 @@ $(document).ready(function() {
 		$(this).css('zIndex', id);
 		$('.dt-conteiner[id="'+id+'"] table tbody').html(drawCalendar());
 		$('.dt-conteiner[id="'+id+'"]').css('zIndex', 100).show();
-		//t.test();
 	});
 	
 	$('.dt-calendar').on('click', 'td[class="cm"]', function(e) {
@@ -110,17 +109,42 @@ $(document).ready(function() {
 			min = validateMinSec(min);
 			sec = validateMinSec(sec);
 
-			/*for (var i = 0; i < time.length; i++) {
-				time[i] = checkZero(time[i]);
-			}*/
-		//var fullDate = dd+'-'+mm+'-'+yy+' '+time[0]+':'+time[1]+':'+time[2];
+			//console.log(sec);
 		var fullDate = dd+'-'+mm+'-'+yy+' '+hour+':'+min+':'+sec;
 			$('div[id="'+id+'"].dt-picker>input').val(fullDate);
 			conteiner.hide();
 	});
 
-	$('.dt-conteiner').on('click', 'button', function() {
-		//console.log('Click prev button');
+	$('.dt-conteiner').on('click',
+		                  'button[class="btn-tb ico-prev f-left"]',
+		                  function() {
+		var month = {
+						0: ['Январь', 31],
+						1: ['Февраль', 28],
+						2: ['Март', 31],
+						3: ['Апрель', 30],
+						4: ['Май', 31],
+						5: ['Июнь', 30],
+						6: ['Июль', 31],
+						7: ['Август', 31],
+						8: ['Сентябрь', 30],
+						9: ['Октябрь', 31],
+					   10: ['Ноябрь', 30],
+					   11: ['Декабрь', 31]
+		}
+		console.log('Click prev button');
+		var monthBlock = $(this).next('.month');
+		var monthID = monthBlock.data('value');
+			monthID = monthID - 1;
+			monthBlock.html(month[monthID][1]);
+			monthBlock.data('value', monthID);
+			console.log(monthID);
+	});
+
+	$('.dt-conteiner').on('click',
+		                  'button[class="btn-tb ico-next f-left"]',
+		                  function() {
+		console.log('Click next button');
 	});
 }); //End of ready
 
@@ -198,9 +222,11 @@ function drawCalendar() {
 }
 
 function checkZero(value) {
-	if (value != '' || value != '00') {
+	if (value === '') {
+		value = '00';
+	}
+	if (value != '00') {
 		value = parseInt(value, 10);
-		console.log(value);
 		if (value < 10) {
 			value = '0'+value;
 		}
