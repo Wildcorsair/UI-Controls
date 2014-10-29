@@ -81,23 +81,42 @@ $(document).ready(function() {
 			myEvent.stopPropagation();
 		var myTarget = myEvent.target || myEvent.srcElement;
 		var dd = ($(myTarget).data('value'));
-			if (dd < 10) {
-				dd = '0'+dd;
-			}
+			dd = checkZero(dd);
+		
 		var mm = ($('.month').data('value'));
-			if (mm < 10) {
-				mm = '0'+mm;
-			}
+			mm = checkZero(mm);
 		var yy = ($('.year').data('value'));
 
-		var id = $(this).parents('.dt-conteiner').attr('id');
-		var hour = $('div.dt-conteiner[id="'+id+'"] .time-block>input[name="hour"]').val();
-		var min = $('div.dt-conteiner[id="'+id+'"] .time-block>input[name="min"]').val();
-		var sec = $('div.dt-conteiner[id="'+id+'"] .time-block>input[name="sec"]').val();
-			//console.log(id);
+		var conteiner = $(this).parents('.dt-conteiner');
+		var id = conteiner.attr('id');
+
+		var timeBlock = conteiner.children('.time-block');
+
+		/*var hour = timeBlock.children('input[name="hour"]').val();
+		var min = timeBlock.children('input[name="min"]').val();
+		var sec = timeBlock.children('input[name="sec"]').val();
+
+		
+		var fullDate = dd+'-'+mm+'-'+yy+' '+hour+':'+min+':'+sec;*/
+		/*var time = [];
+			time[0] = timeBlock.children('input[name="hour"]').val();
+			time[1] = timeBlock.children('input[name="min"]').val();
+			time[2] = timeBlock.children('input[name="sec"]').val();*/
+		var hour = timeBlock.children('input[name="hour"]').val();
+		var min = timeBlock.children('input[name="min"]').val();
+		var sec = timeBlock.children('input[name="sec"]').val();
+
+			hour = validateHour(hour);
+			min = validateMinSec(min);
+			sec = validateMinSec(sec);
+
+			/*for (var i = 0; i < time.length; i++) {
+				time[i] = checkZero(time[i]);
+			}*/
+		//var fullDate = dd+'-'+mm+'-'+yy+' '+time[0]+':'+time[1]+':'+time[2];
 		var fullDate = dd+'-'+mm+'-'+yy+' '+hour+':'+min+':'+sec;
-		$('div[id="'+id+'"].dt-picker>input').val(fullDate);
-		$('.dt-conteiner').hide();
+			$('div[id="'+id+'"].dt-picker>input').val(fullDate);
+			conteiner.hide();
 	});
 
 	$('.dt-conteiner').on('click', 'button', function() {
@@ -137,11 +156,7 @@ function drawCalendar() {
 	if (firstDayNum == 0) {
 		firstDayNum = 7;
 	}
-	
-	/*
-	console.log('Номер дня первого числа: '+firstDayNum);
-	console.log('Номер дня сегодняшнего числа: '+today.getDay());*/
-	
+
 	var prevMonthDays = month[today.getMonth()-1][1];
 	var currentMonthDays = month[today.getMonth()][1];
 	
@@ -179,16 +194,34 @@ function drawCalendar() {
 			res += '<tr>';
 		}
 	}
-
-	/*console.log('К-ство дней в предыдущем месяце: '+prevMonthDays);
-	console.log('К-ство дней в текущем месяце: '+currentMonthDays);*/
 	return res;
 }
 
-function getFebruaryDaysCount(year) {
-	if (year % 4 == 0) {
-		return 29;
+function checkZero(value) {
+	if (value != '' || value != '00') {
+		value = parseInt(value, 10);
+		console.log(value);
+		if (value < 10) {
+			value = '0'+value;
+		}
 	}
+	return value;
+}
+
+function validateHour(hour) {
+	if (hour < 0 || hour > 23) {
+		hour = '00';
+	}
+	hour = checkZero(hour);
+	return hour;
+}
+
+function validateMinSec(value) {
+	if (value < 0 || value > 59) {
+		value = '00';
+	}
+	value = checkZero(value);
+	return value;
 }
 
 var t = {}
