@@ -68,10 +68,18 @@ $(document).ready(function() {
 	*/
 
 	$('div.dt-picker').click(function() {
+		/*var myEvent = e || window.e;
+		var myTarget = myEvent.target || myEvent.srcElement;
+			if (myTarget.className == 'dt-picker') {
+				console.log(myTarget.className);
+			}*/
 		var id = this.id;
-		//drawCalendar();
+		var dateValue = $(this).children('input').val();
+		if (dateValue == '') {
+			dateValue = null;
+		}
 		$(this).css('zIndex', id);
-		$('.dt-conteiner[id="'+id+'"] table tbody').html(drawCalendar());
+		$('.dt-conteiner[id="'+id+'"] table tbody').html(drawCalendar(dateValue));
 		$('.dt-conteiner[id="'+id+'"]').css('zIndex', 100).show();
 	});
 	
@@ -82,25 +90,14 @@ $(document).ready(function() {
 		var dd = ($(myTarget).data('value'));
 			dd = checkZero(dd);
 		
-		var mm = ($('.month').data('value'));
+		var mm = $('.month').data('value');
 			mm = checkZero(mm);
-		var yy = ($('.year').data('value'));
+		var yy = $('.year').data('value');
 
 		var conteiner = $(this).parents('.dt-conteiner');
 		var id = conteiner.attr('id');
 
 		var timeBlock = conteiner.children('.time-block');
-
-		/*var hour = timeBlock.children('input[name="hour"]').val();
-		var min = timeBlock.children('input[name="min"]').val();
-		var sec = timeBlock.children('input[name="sec"]').val();
-
-		
-		var fullDate = dd+'-'+mm+'-'+yy+' '+hour+':'+min+':'+sec;*/
-		/*var time = [];
-			time[0] = timeBlock.children('input[name="hour"]').val();
-			time[1] = timeBlock.children('input[name="min"]').val();
-			time[2] = timeBlock.children('input[name="sec"]').val();*/
 		var hour = timeBlock.children('input[name="hour"]').val();
 		var min = timeBlock.children('input[name="min"]').val();
 		var sec = timeBlock.children('input[name="sec"]').val();
@@ -117,79 +114,118 @@ $(document).ready(function() {
 
 	$('.dt-conteiner').on('click',
 		                  'button[class="btn-tb ico-prev f-left"]',
-		                  function() {
-		var month = {
-						0: ['Январь', 31],
-						1: ['Февраль', 28],
-						2: ['Март', 31],
-						3: ['Апрель', 30],
-						4: ['Май', 31],
-						5: ['Июнь', 30],
-						6: ['Июль', 31],
-						7: ['Август', 31],
-						8: ['Сентябрь', 30],
-						9: ['Октябрь', 31],
-					   10: ['Ноябрь', 30],
-					   11: ['Декабрь', 31]
-		}
-		console.log('Click prev button');
+		                  function(e) {
+		var myEvent = e || window.e;
+			myEvent.stopPropagation();
 		var monthBlock = $(this).next('.month');
+		var yearBlock = $(this).parents('.dt-conteiner').children('.year');
 		var monthID = monthBlock.data('value');
-			monthID = monthID - 1;
-			monthBlock.html(month[monthID][1]);
-			monthBlock.data('value', monthID);
-			console.log(monthID);
+		var year = yearBlock.data('value');
+		var	prevMonthID = monthID - 1;
+			if (prevMonthID < 1) {
+				prevMonthID = 12;
+			}
+		var	prevMonth = checkZero(prevMonthID);
+			dateValue = '01-'+prevMonth+'-'+year;
+			monthBlock.html(calendar.month[prevMonthID][0]);
+			monthBlock.data('value', prevMonthID);
+			$(this).parents('.dt-conteiner').children('table')
+					.children('tbody').html(drawCalendar(dateValue));
 	});
 
 	$('.dt-conteiner').on('click',
 		                  'button[class="btn-tb ico-next f-left"]',
-		                  function() {
-		console.log('Click next button');
+		                  function(e) {
+		var myEvent = e || window.e;
+			myEvent.stopPropagation();
+		var monthBlock = $(this).prev('.month');
+		var yearBlock = $(this).next('.year');
+		var monthID = monthBlock.data('value');
+		var year = yearBlock.data('value');
+		var	nextMonthID = monthID + 1;
+			if (nextMonthID > 12) {
+				nextMonthID = 1;
+			}	
+		var	nextMonth = checkZero(nextMonthID);
+			dateValue = '01-'+nextMonth+'-'+year;
+			monthBlock.html(calendar.month[nextMonthID][0]);
+			monthBlock.data('value', nextMonthID);
+			$(this).parents('.dt-conteiner').children('table')
+					.children('tbody').html(drawCalendar(dateValue));
+	});
+
+	$('.dt-conteiner').on('click', this, function(e) {
+		var myEvent = e || window.e;
+			myEvent.stopPropagation();
+	});
+	
+	$('.time-block').on('click', this, function(e) {
+		var myEvent = e || window.e;
+			myEvent.stopPropagation();
 	});
 }); //End of ready
 
-function drawCalendar() {
-	var month = {
-					0: ['Январь', 31],
-					1: ['Февраль', 28],
-					2: ['Март', 31],
-					3: ['Апрель', 30],
-					4: ['Май', 31],
-					5: ['Июнь', 30],
-					6: ['Июль', 31],
-					7: ['Август', 31],
-					8: ['Сентябрь', 30],
-					9: ['Октябрь', 31],
-				   10: ['Ноябрь', 30],
-				   11: ['Декабрь', 31]
+function drawCalendar(dateValue) {
+	if (dateValue == null) {
+		var today = new Date();
+		var mm = today.getMonth()+1;
+	} else {
+		var dd = dateValue.substr(0, 2);
+			//dd = checkZero(dd);
+		var mm = dateValue.substr(3, 2);
+			//mm = checkZero(mm);
+		var yy = dateValue.substr(6, 4);
+		var today = new Date(yy, mm-1, dd);
+		//var mon = today.getMonth();
 	}
-	var today = new Date();
-	var mon = today.getMonth()+1;
+
+	mm = parseInt(mm, 10);
 	var cYear = today.getFullYear();
-	var firstDayStr = cYear+'/'+mon+'/1';
+	//var firstDayStr = cYear+'/'+mon+'/1';
 	var monthDiv = $('.month');
 	var yearDiv = $('.year');
-	monthDiv.html(month[today.getMonth()][0])
-	monthDiv.data('value', mon);
+
+	//monthDiv.html(calendar.month[today.getMonth()][0]);
+	monthDiv.html(calendar.month[mm][0]);
 	yearDiv.html(cYear);
+
+	//monthDiv.data('value', today.getMonth()+1);
+	monthDiv.data('value', mm);
 	yearDiv.data('value', cYear);
 
-	var firstDay = new Date(firstDayStr);
+	//var firstDay = new Date(firstDayStr);
+	var firstDay = new Date(cYear, mm-1);
 	var firstDayNum = firstDay.getDay();
 	
 	if (firstDayNum == 0) {
 		firstDayNum = 7;
 	}
 
-	var prevMonthDays = month[today.getMonth()-1][1];
-	var currentMonthDays = month[today.getMonth()][1];
+	//var prevMonthDays = calendar.month[today.getMonth()-1][1];
+	var prevMM = mm - 1;
+	if (prevMM < 1) {
+		prevMM = 12;
+	}
+	var prevMonthDays = calendar.month[prevMM][1];
+	//var currentMonthDays = calendar.month[today.getMonth()][1];
+	var currentMonthDays = calendar.month[mm][1];
 	
-	if (today.getMonth() == 1) {
+	/*if (today.getMonth() == 1) {
 		if (cYear % 4 == 0) {
 			currentMonthDays = 29;
 		}
 	}
 	if ((today.getMonth()-1) == 1) {
+		if (cYear % 4 == 0) {
+			prevMonthDays = 29;
+		}
+	}*/
+	if (mm == 2) {
+		if (cYear % 4 == 0) {
+			currentMonthDays = 29;
+		}
+	}
+	if ((mm-1) == 2) {
 		if (cYear % 4 == 0) {
 			prevMonthDays = 29;
 		}
@@ -248,6 +284,38 @@ function validateMinSec(value) {
 	}
 	value = checkZero(value);
 	return value;
+}
+
+/*var calendar = {}
+calendar.month = {
+					0: ['Январь', 31],
+					1: ['Февраль', 28],
+					2: ['Март', 31],
+					3: ['Апрель', 30],
+					4: ['Май', 31],
+					5: ['Июнь', 30],
+					6: ['Июль', 31],
+					7: ['Август', 31],
+					8: ['Сентябрь', 30],
+					9: ['Октябрь', 31],
+					10: ['Ноябрь', 30],
+					11: ['Декабрь', 31]
+}*/
+
+var calendar = {}
+calendar.month = {
+					1: ['Январь', 31],
+					2: ['Февраль', 28],
+					3: ['Март', 31],
+					4: ['Апрель', 30],
+					5: ['Май', 31],
+					6: ['Июнь', 30],
+					7: ['Июль', 31],
+					8: ['Август', 31],
+					9: ['Сентябрь', 30],
+				   10: ['Октябрь', 31],
+				   11: ['Ноябрь', 30],
+				   12: ['Декабрь', 31]
 }
 
 var t = {}

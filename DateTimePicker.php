@@ -61,7 +61,7 @@
 
             <div id='3' class='dt-picker'>
                 <input class='' type='text' 
-                    name='grpVal' value='15-10-2014 08:00:00'>
+                    name='grpVal' value='05-03-2013'>
                 <input type='hidden' name='grpId' value=''>
                 <div class='dt-btn ico-date'></div>
 
@@ -107,7 +107,7 @@
             <br /><br />
             <div id='2' class='dt-picker f-left'>
                 <input class='font-bold' type='text' 
-                    name='grpVal' value='15-10-2014 08:00:00'>
+                    name='grpVal' value=''>
                 <input type='hidden' name='grpId' value=''>
                 <div class='dt-btn ico-date'></div>
 
