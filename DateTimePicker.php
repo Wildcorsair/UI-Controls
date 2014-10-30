@@ -61,16 +61,17 @@
 
             <div id='3' class='dt-picker'>
                 <input class='' type='text' 
-                    name='grpVal' value='05-03-2013'>
+                    name='grpVal' value='05-03-2013 00:00:00'>
                 <input type='hidden' name='grpId' value=''>
                 <div class='dt-btn ico-date'></div>
 
                 <div id='3' class='dt-conteiner'>
                     <button class='btn-tb ico-prev f-left'></button>
                     <div class='month f-left'>Декабрь</div>
-                    <button class='btn-tb ico-next f-left'></button>               
-                    <div class='year f-left'>2014</div>                
-                    <button class='btn-tb ico-down'></button>
+                    <div class='year f-left'>2014</div>
+                    <button class='btn-tb ico-next f-right'></button>               
+                                    
+                    <!--<button class='btn-tb ico-down'></button>-->
                     <table class='dt-calendar'>
                         <thead>
                             <tr>

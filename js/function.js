@@ -134,7 +134,7 @@ $(document).ready(function() {
 	});
 
 	$('.dt-conteiner').on('click',
-		                  'button[class="btn-tb ico-next f-left"]',
+		                  'button[class="btn-tb ico-next f-right"]',
 		                  function(e) {
 		var myEvent = e || window.e;
 			myEvent.stopPropagation();
@@ -153,6 +153,14 @@ $(document).ready(function() {
 			$(this).parents('.dt-conteiner').children('table')
 					.children('tbody').html(drawCalendar(dateValue));
 	});
+
+	/*$('.dt-conteiner').on('click',
+	                      'button[class="btn-tb ico-down"]',
+						  function(e) {
+		var myEvent = e || window.e;
+			myEvent.stopPropagation();
+			$('.yearList').show();
+	});*/
 
 	$('.dt-conteiner').on('click', this, function(e) {
 		var myEvent = e || window.e;
