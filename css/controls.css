@@ -514,21 +514,20 @@ div.dt-conteiner {
 	font-size: 15px;
 	background-color: #fff;
 }
-div.month {
-	width: 72px;
+div.monthYear {
+	width: 130px;
 	height: 24px;
 	line-height: 24px;
 	text-align: center;
 	/*background-color: #999;*/
 }
-div.year {
+/*div.year {
 	width: 35px;
 	height: 24px;
 	line-height: 24px;
 	position: relative;
 	margin-left: 15px;
-	/*background-color: #999;*/
-}
+}*/
 table.dt-calendar {
 	margin: 3px;
 	border-spacing: 1px;
@@ -576,15 +575,3 @@ div.time-block input.sec {
 	text-align: center;
 	width: 20px;
 }
-
-/*div.yearList {
-	width: 59px;
-	height: 70px;
-	position: absolute;
-	top: 5px;
-	left: 355px;
-	overflow-x: hidden;
-	background-color: #ccc;
-	display: none;
-	z-index: 100;
-}*/

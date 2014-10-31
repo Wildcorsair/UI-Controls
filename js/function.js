@@ -30,7 +30,8 @@ $(document).ready(function() {
 	});
 	
 	$('.items').on('click', 'li', function(e) {
-		/* Отменяем передачу события по цепочке вверх
+		/* 
+		*  Отменяем передачу события по цепочке вверх
 		*  иначе список исчезнет и снова распахнется
 		*  так как у dropdown-а сработает событие клика
 		*/
@@ -57,6 +58,7 @@ $(document).ready(function() {
 			return;
 		}
 		$('.items').hide();
+		$('.dt-conteiner').hide();
 		myEvent.stopPropagation();
 	});
 	
@@ -68,19 +70,30 @@ $(document).ready(function() {
 	*/
 
 	$('div.dt-picker').click(function() {
-		/*var myEvent = e || window.e;
-		var myTarget = myEvent.target || myEvent.srcElement;
-			if (myTarget.className == 'dt-picker') {
-				console.log(myTarget.className);
-			}*/
-		var id = this.id;
-		var dateValue = $(this).children('input').val();
-		if (dateValue == '') {
-			dateValue = null;
+		var visibleContainer = $('.dt-conteiner:visible');
+		if (visibleContainer.length > 0) {
+			visibleContainer.hide();
+			var thisId = this.id;
+			var conteinerId = visibleContainer.attr('id');
+			if (thisId !== conteinerId) {
+				var dateValue = $(this).children('input').val();
+				if (dateValue == '') {
+					dateValue = null;
+				}
+				$(this).css('zIndex', thisId);
+				$('.dt-conteiner[id="'+thisId+'"] table tbody').html(drawCalendar(dateValue));
+				$('.dt-conteiner[id="'+thisId+'"]').css('zIndex', 100).show();
+			}
+		} else {
+			var id = this.id;
+			var dateValue = $(this).children('input').val();
+			if (dateValue == '') {
+				dateValue = null;
+			}
+			$(this).css('zIndex', id);
+			$('.dt-conteiner[id="'+id+'"] table tbody').html(drawCalendar(dateValue));
+			$('.dt-conteiner[id="'+id+'"]').css('zIndex', 100).show();
 		}
-		$(this).css('zIndex', id);
-		$('.dt-conteiner[id="'+id+'"] table tbody').html(drawCalendar(dateValue));
-		$('.dt-conteiner[id="'+id+'"]').css('zIndex', 100).show();
 	});
 	
 	$('.dt-calendar').on('click', 'td[class="cm"]', function(e) {
@@ -89,10 +102,10 @@ $(document).ready(function() {
 		var myTarget = myEvent.target || myEvent.srcElement;
 		var dd = ($(myTarget).data('value'));
 			dd = checkZero(dd);
-		
-		var mm = $('.month').data('value');
+
+		var mm = $('.monthYear').data('month');
 			mm = checkZero(mm);
-		var yy = $('.year').data('value');
+		var yy = $('.monthYear').data('year');
 
 		var conteiner = $(this).parents('.dt-conteiner');
 		var id = conteiner.attr('id');
@@ -106,7 +119,6 @@ $(document).ready(function() {
 			min = validateMinSec(min);
 			sec = validateMinSec(sec);
 
-			//console.log(sec);
 		var fullDate = dd+'-'+mm+'-'+yy+' '+hour+':'+min+':'+sec;
 			$('div[id="'+id+'"].dt-picker>input').val(fullDate);
 			conteiner.hide();
@@ -117,18 +129,18 @@ $(document).ready(function() {
 		                  function(e) {
 		var myEvent = e || window.e;
 			myEvent.stopPropagation();
-		var monthBlock = $(this).next('.month');
-		var yearBlock = $(this).parents('.dt-conteiner').children('.year');
-		var monthID = monthBlock.data('value');
-		var year = yearBlock.data('value');
+		var monthBlock = $(this).next('.monthYear');
+		var monthID = monthBlock.data('month');
+		var year = monthBlock.data('year');
 		var	prevMonthID = monthID - 1;
 			if (prevMonthID < 1) {
 				prevMonthID = 12;
+				year = year - 1;
 			}
 		var	prevMonth = checkZero(prevMonthID);
 			dateValue = '01-'+prevMonth+'-'+year;
 			monthBlock.html(calendar.month[prevMonthID][0]);
-			monthBlock.data('value', prevMonthID);
+			monthBlock.data('month', prevMonthID);
 			$(this).parents('.dt-conteiner').children('table')
 					.children('tbody').html(drawCalendar(dateValue));
 	});
@@ -138,29 +150,21 @@ $(document).ready(function() {
 		                  function(e) {
 		var myEvent = e || window.e;
 			myEvent.stopPropagation();
-		var monthBlock = $(this).prev('.month');
-		var yearBlock = $(this).next('.year');
-		var monthID = monthBlock.data('value');
-		var year = yearBlock.data('value');
+		var monthBlock = $(this).prev('.monthYear');
+		var monthID = monthBlock.data('month');
+		var year = monthBlock.data('year');
 		var	nextMonthID = monthID + 1;
 			if (nextMonthID > 12) {
 				nextMonthID = 1;
+				year = year + 1;
 			}	
 		var	nextMonth = checkZero(nextMonthID);
 			dateValue = '01-'+nextMonth+'-'+year;
 			monthBlock.html(calendar.month[nextMonthID][0]);
-			monthBlock.data('value', nextMonthID);
+			monthBlock.data('month', nextMonthID);
 			$(this).parents('.dt-conteiner').children('table')
 					.children('tbody').html(drawCalendar(dateValue));
 	});
-
-	/*$('.dt-conteiner').on('click',
-	                      'button[class="btn-tb ico-down"]',
-						  function(e) {
-		var myEvent = e || window.e;
-			myEvent.stopPropagation();
-			$('.yearList').show();
-	});*/
 
 	$('.dt-conteiner').on('click', this, function(e) {
 		var myEvent = e || window.e;
@@ -179,29 +183,19 @@ function drawCalendar(dateValue) {
 		var mm = today.getMonth()+1;
 	} else {
 		var dd = dateValue.substr(0, 2);
-			//dd = checkZero(dd);
 		var mm = dateValue.substr(3, 2);
-			//mm = checkZero(mm);
 		var yy = dateValue.substr(6, 4);
 		var today = new Date(yy, mm-1, dd);
-		//var mon = today.getMonth();
 	}
 
 	mm = parseInt(mm, 10);
 	var cYear = today.getFullYear();
-	//var firstDayStr = cYear+'/'+mon+'/1';
-	var monthDiv = $('.month');
-	var yearDiv = $('.year');
+	var monthDiv = $('.monthYear');
+	monthDiv.html(calendar.month[mm][0]+'&nbsp'+cYear);
 
-	//monthDiv.html(calendar.month[today.getMonth()][0]);
-	monthDiv.html(calendar.month[mm][0]);
-	yearDiv.html(cYear);
-
-	//monthDiv.data('value', today.getMonth()+1);
-	monthDiv.data('value', mm);
-	yearDiv.data('value', cYear);
-
-	//var firstDay = new Date(firstDayStr);
+	monthDiv.data('month', mm);
+	monthDiv.data('year', cYear);
+	
 	var firstDay = new Date(cYear, mm-1);
 	var firstDayNum = firstDay.getDay();
 	
@@ -209,25 +203,13 @@ function drawCalendar(dateValue) {
 		firstDayNum = 7;
 	}
 
-	//var prevMonthDays = calendar.month[today.getMonth()-1][1];
 	var prevMM = mm - 1;
 	if (prevMM < 1) {
 		prevMM = 12;
 	}
 	var prevMonthDays = calendar.month[prevMM][1];
-	//var currentMonthDays = calendar.month[today.getMonth()][1];
 	var currentMonthDays = calendar.month[mm][1];
-	
-	/*if (today.getMonth() == 1) {
-		if (cYear % 4 == 0) {
-			currentMonthDays = 29;
-		}
-	}
-	if ((today.getMonth()-1) == 1) {
-		if (cYear % 4 == 0) {
-			prevMonthDays = 29;
-		}
-	}*/
+
 	if (mm == 2) {
 		if (cYear % 4 == 0) {
 			currentMonthDays = 29;
@@ -294,22 +276,6 @@ function validateMinSec(value) {
 	return value;
 }
 
-/*var calendar = {}
-calendar.month = {
-					0: ['Январь', 31],
-					1: ['Февраль', 28],
-					2: ['Март', 31],
-					3: ['Апрель', 30],
-					4: ['Май', 31],
-					5: ['Июнь', 30],
-					6: ['Июль', 31],
-					7: ['Август', 31],
-					8: ['Сентябрь', 30],
-					9: ['Октябрь', 31],
-					10: ['Ноябрь', 30],
-					11: ['Декабрь', 31]
-}*/
-
 var calendar = {}
 calendar.month = {
 					1: ['Январь', 31],
@@ -324,9 +290,4 @@ calendar.month = {
 				   10: ['Октябрь', 31],
 				   11: ['Ноябрь', 30],
 				   12: ['Декабрь', 31]
-}
-
-var t = {}
-t.test = function() {
-			console.log('Qu!Qu!');
 }
