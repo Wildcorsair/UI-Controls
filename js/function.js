@@ -81,7 +81,7 @@ $(document).ready(function() {
 					dateValue = null;
 				}
 				$(this).css('zIndex', thisId);
-				$('.dt-conteiner[id="'+thisId+'"] table tbody').html(drawCalendar(dateValue));
+				$('.dt-conteiner[id="'+thisId+'"] table[class="dt-calendar"] tbody').html(drawCalendar(dateValue));
 				$('.dt-conteiner[id="'+thisId+'"]').css('zIndex', 100).show();
 			}
 		} else {
@@ -91,7 +91,7 @@ $(document).ready(function() {
 				dateValue = null;
 			}
 			$(this).css('zIndex', id);
-			$('.dt-conteiner[id="'+id+'"] table tbody').html(drawCalendar(dateValue));
+			$('.dt-conteiner[id="'+id+'"] table[class="dt-calendar"] tbody').html(drawCalendar(dateValue));
 			$('.dt-conteiner[id="'+id+'"]').css('zIndex', 100).show();
 		}
 	});
@@ -110,10 +110,10 @@ $(document).ready(function() {
 		var conteiner = $(this).parents('.dt-conteiner');
 		var id = conteiner.attr('id');
 
-		var timeBlock = conteiner.children('.time-block');
-		var hour = timeBlock.children('input[name="hour"]').val();
-		var min = timeBlock.children('input[name="min"]').val();
-		var sec = timeBlock.children('input[name="sec"]').val();
+		var timeBlock = conteiner.children('.time-block').find('table');
+		var hour = timeBlock.find('input[name="hour"]').val();
+		var min = timeBlock.find('input[name="min"]').val();
+		var sec = timeBlock.find('input[name="sec"]').val();
 
 			hour = validateHour(hour);
 			min = validateMinSec(min);
@@ -178,6 +178,10 @@ $(document).ready(function() {
 }); //End of ready
 
 function drawCalendar(dateValue) {
+	var hh = '00';
+	var min = '00';
+	var sec = '00';
+	
 	if (dateValue == null) {
 		var today = new Date();
 		var mm = today.getMonth()+1;
@@ -185,17 +189,27 @@ function drawCalendar(dateValue) {
 		var dd = dateValue.substr(0, 2);
 		var mm = dateValue.substr(3, 2);
 		var yy = dateValue.substr(6, 4);
+			hh = dateValue.substr(11, 2);
+			min = dateValue.substr(14, 2);
+			sec = dateValue.substr(17, 2);
 		var today = new Date(yy, mm-1, dd);
 	}
 
 	mm = parseInt(mm, 10);
 	var cYear = today.getFullYear();
 	var monthDiv = $('.monthYear');
-	monthDiv.html(calendar.month[mm][0]+'&nbsp'+cYear);
+	monthDiv.html(calendar.month[mm][0] + " " + cYear);
 
 	monthDiv.data('month', mm);
 	monthDiv.data('year', cYear);
 	
+	if ((hh != '') && (min != '') && (sec !='')) {
+		var timeBlock = $('.time-block');
+		timeBlock.find('input[name="hour"]').val(hh);
+		timeBlock.find('input[name="min"]').val(min);
+		timeBlock.find('input[name="sec"]').val(sec);
+	}
+
 	var firstDay = new Date(cYear, mm-1);
 	var firstDayNum = firstDay.getDay();
 	

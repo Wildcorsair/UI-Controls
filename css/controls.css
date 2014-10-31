@@ -506,7 +506,6 @@ div.dt-conteiner {
 	position: absolute;
 	top: 28px;
 	left: -1px;
-	/*left: 50px;*/
 	color: #555;
 	width: 179px;
 	border: 1px solid #aaa;
@@ -554,13 +553,21 @@ table.dt-calendar td.next-month {
 	color: #ddd;
 	background-color: #bbb;
 }
+
+/*table.dt-calendar td.curr-day {
+	background-color: blue;
+	border: 1px solid green;
+}*/
+
 div.time-block {
 	width: 167px;
-	height: 26px;
+	/*height: 26px;
+	line-height: 26px;*/
 	margin: 0 3px 3px 3px;
 	padding: 2px;
 	background-color: #ddd;
 	border: 1px solid #aaa;
+	/*text-align: center;*/
 }
 div.time-block input {
 	height: 20px;
@@ -574,4 +581,9 @@ div.time-block input.min,
 div.time-block input.sec {
 	text-align: center;
 	width: 20px;
+}
+.time-block table {
+	width: 110px;
+	height: 24px;
+	margin: 0 auto;
 }

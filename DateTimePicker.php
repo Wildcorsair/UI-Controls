@@ -67,11 +67,8 @@
 
                 <div id='3' class='dt-conteiner'>
                     <button class='btn-tb ico-prev f-left'></button>
-                    <div class='monthYear f-left'>Декабрь</div>
-                    <!--<div class='year f-left'>2014</div>-->
-                    <button class='btn-tb ico-next f-right'></button>               
-                                    
-                    <!--<button class='btn-tb ico-down'></button>-->
+                    <div class='monthYear f-left'></div>
+                    <button class='btn-tb ico-next f-right'></button>
                     <table class='dt-calendar'>
                         <thead>
                             <tr>
@@ -95,12 +92,24 @@
                         </tr>
                     </table>
                     <div class='time-block'>
-                        <input class='hour' type='text' name='hour'
-                                maxlength='2' value='00'>&nbsp:
-                        <input class='min' type='text' name='min' 
-                                maxlength='2' value='00'>&nbsp:
-                        <input class='sec' type='text' name='sec' 
-                                maxlength='2' value='00'>
+                        <table>
+                            <tr>
+                                <td>
+                                    <input class='hour' type='text' name='hour'
+                                            maxlength='2' value='00'>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <input class='min' type='text' name='min' 
+                                            maxlength='2' value='00'>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <input class='sec' type='text' name='sec' 
+                                            maxlength='2' value='00'>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -139,12 +148,24 @@
                         </tr>
                     </table>
                     <div class='time-block'>
-                        <input class='hour' type='text' name='hour'
-                                maxlength='2' value='00'>&nbsp:
-                        <input class='min' type='text' name='min' 
-                                maxlength='2' value='00'>&nbsp:
-                        <input class='sec' type='text' name='sec' 
-                                maxlength='2' value='00'>
+                        <table>
+                            <tr>
+                                <td>
+                                    <input class='hour' type='text' name='hour'
+                                            maxlength='2' value=''>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <input class='min' type='text' name='min' 
+                                            maxlength='2' value=''>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <input class='sec' type='text' name='sec' 
+                                            maxlength='2' value=''>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
