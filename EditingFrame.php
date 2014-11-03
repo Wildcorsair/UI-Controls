@@ -119,7 +119,7 @@
                             </td>
                             <td>
                                 <input type='text' name='uage' 
-                                        size='6' class='text-field'>
+                                        size='6' class='text-field r-align'>
                             </td>
                         </tr>
                         <tr>

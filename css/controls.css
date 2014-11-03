@@ -344,8 +344,8 @@ button.btn.large {
 
 
 /*
-	Стили таблицы (grid-а) в которой
-	размещаются контролы формы
+*	Стили таблицы (grid-а) в которой
+*	размещаются контролы формы
 */
 table.form-controls-grid {
 	width: 100%;
@@ -362,9 +362,9 @@ table.form-controls-grid td.large {
 
 
 /*
-	Стили контролов формы:
-
-	DropDown выпадающий список
+*	Стили контролов формы:
+*
+*	DropDown выпадающий список
 */
 div.dropdown {
 	border: 1px solid #aaa;
@@ -430,8 +430,8 @@ div.items li:hover {
 }
 
 /*
-	TextEdit текстовое поле
-	TextArea область ввода
+*	TextEdit текстовое поле
+*	TextArea область ввода
 */
 .window-frame input.text-field,
 .window-frame textarea {
@@ -451,7 +451,7 @@ div.items li:hover {
 }
 
 /*
-	Размер шрифта в контролах
+*	Размер шрифта в контролах
 */
 input.text-field .font-bold,
 div.dropdown .font-bold,
@@ -466,7 +466,7 @@ label {
 }
 
 /*
-	DateTimePicker дата и время
+*	DateTimePicker дата и время
 */
 div.dt-picker {
 	width: 175px;
@@ -518,7 +518,6 @@ div.monthYear {
 	height: 24px;
 	line-height: 24px;
 	text-align: center;
-	/*background-color: #999;*/
 }
 /*div.year {
 	width: 35px;
@@ -561,13 +560,10 @@ table.dt-calendar td.next-month {
 
 div.time-block {
 	width: 167px;
-	/*height: 26px;
-	line-height: 26px;*/
 	margin: 0 3px 3px 3px;
 	padding: 2px;
 	background-color: #ddd;
 	border: 1px solid #aaa;
-	/*text-align: center;*/
 }
 div.time-block input {
 	height: 20px;
@@ -586,4 +582,11 @@ div.time-block input.sec {
 	width: 110px;
 	height: 24px;
 	margin: 0 auto;
+}
+
+/*
+*	
+*/
+.r-align {
+	text-align: right;
 }
