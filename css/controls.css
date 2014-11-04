@@ -352,7 +352,7 @@ table.form-controls-grid {
 	margin: 10px;
 }
 
-table.form-controls-grid td {
+table.form-controls-grid>tbody>tr>td {
 	padding: 5px;
 }
 
