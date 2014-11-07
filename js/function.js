@@ -65,10 +65,12 @@ $(document).ready(function() {
 	$('input[readonly]').focus(function(){
 	    this.blur();
 	});
-	/*
-		Конец рабочего кода
-	*/
 
+	/*
+	*	Описание функций DateTimePicker-а
+	*	
+	*	Функция раскрытия календаря
+	*/
 	$('div.dt-picker').click(function() {
 		var visibleContainer = $('.dt-conteiner:visible');
 		if (visibleContainer.length > 0) {
@@ -96,6 +98,9 @@ $(document).ready(function() {
 		}
 	});
 	
+	/*
+	*	Функция выбора даты в календаре
+	*/
 	$('.dt-calendar').on('click', 'td[class="cm"]', function(e) {
 		var myEvent = e || window.e;
 			myEvent.stopPropagation();
@@ -103,14 +108,15 @@ $(document).ready(function() {
 		var dd = ($(myTarget).data('value'));
 			dd = checkZero(dd);
 
-		var mm = $('.monthYear').data('month');
+		var monthYear = $('.monthYear');
+		var mm = monthYear.data('month');
 			mm = checkZero(mm);
-		var yy = $('.monthYear').data('year');
+		var yy = monthYear.data('year');
 
 		var conteiner = $(this).parents('.dt-conteiner');
 		var id = conteiner.attr('id');
 
-		var timeBlock = conteiner.children('.time-block').find('table');
+		var timeBlock = conteiner.children('.time-block');
 		var hour = timeBlock.find('input[name="hour"]').val();
 		var min = timeBlock.find('input[name="min"]').val();
 		var sec = timeBlock.find('input[name="sec"]').val();
@@ -124,6 +130,9 @@ $(document).ready(function() {
 			conteiner.hide();
 	});
 
+	/*
+	*	Функция перелистывания месяца (на предыдущий)
+	*/
 	$('.dt-conteiner').on('click',
 		                  'button[class="btn-tb ico-prev f-left"]',
 		                  function(e) {
@@ -145,6 +154,9 @@ $(document).ready(function() {
 					.children('tbody').html(drawCalendar(dateValue));
 	});
 
+	/*
+	*	Функция перелистывания месяца (на следующий)
+	*/
 	$('.dt-conteiner').on('click',
 		                  'button[class="btn-tb ico-next f-right"]',
 		                  function(e) {
@@ -175,8 +187,17 @@ $(document).ready(function() {
 		var myEvent = e || window.e;
 			myEvent.stopPropagation();
 	});
+
+	/*
+	*	Конец рабочего кода
+	*/
 }); //End of ready
 
+/*
+*	Описание функций
+*	
+*	Функция отрисовки календаря
+*/
 function drawCalendar(dateValue) {
 	var hh = '00';
 	var min = '00';
@@ -305,3 +326,6 @@ calendar.month = {
 				   11: ['Ноябрь', 30],
 				   12: ['Декабрь', 31]
 }
+/*
+*	Конец описания функций
+*/
