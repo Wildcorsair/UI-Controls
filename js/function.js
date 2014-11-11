@@ -203,7 +203,7 @@ function drawCalendar(dateValue) {
 	var min = '00';
 	var sec = '00';
 	
-	if (dateValue == null) {
+	if (dateValue == null || dateValue === '00-00-0000 00:00:00') {
 		var today = new Date();
 		var mm = today.getMonth()+1;
 	} else {

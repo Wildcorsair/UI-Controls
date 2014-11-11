@@ -119,6 +119,30 @@ input[type='submit'] {
 .ico-delete:hover {
 	background-position: -72px -24px;
 }
+.ico-stats {
+	background: url("../images/icons_sprite.png") no-repeat;
+	background-position: -312px 0;
+}
+
+.ico-stats:hover {
+	background-position: -312px -24px;	
+}
+.ico-minimize {
+	background: url("../images/icons_sprite.png") no-repeat;
+	background-position: -336px 0;
+}
+
+.ico-minimize:hover {
+	background-position: -336px -24px;	
+}
+.ico-close {
+	background: url("../images/icons_sprite.png") no-repeat;
+	background-position: -360px 0;
+}
+
+.ico-close:hover {
+	background-position: -360px -24px;
+}
 /* End of icons styles */
 
 

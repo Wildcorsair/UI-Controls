@@ -23,7 +23,7 @@
 			<div class='window-frame blue dialog'>
 				<div class='caption'>
 					Dialog window
-					<button class='btn-tb f-right ico-down'></button>
+					<button class='btn-tb f-right ico-minimize'></button>
 				</div>
 				<p class='dialog'>
 					На форуме часто задают вопросы какой хостинг выбрать.
@@ -41,7 +41,7 @@
 			<div class='window-frame grey dialog'>
 				<div class='caption'>
 					Dialog window
-					<button class='btn-tb f-right ico-down'></button>
+					<button class='btn-tb f-right ico-close'></button>
 				</div>
 				<p class='dialog'>
 					На форуме часто задают вопросы какой хостинг выбрать.
