@@ -142,6 +142,24 @@ input[type='submit'] {
 .ico-close:hover {
 	background-position: -360px -24px;
 }
+
+.ico-radio-empty {
+	background: url("../images/icons_sprite.png") no-repeat;
+	background-position: 0 -48px;
+	content: "\2713";
+}
+
+.ico-radio-empty:hover {
+	background-position: 0 -72px;
+}
+.ico-radio-checked {
+	background: url("../images/icons_sprite.png") no-repeat;
+	background-position: -24px -48px;
+}
+
+.ico-radio-checked:hover {
+	background-position: -24px -72px;
+}
 /* End of icons styles */
 
 
@@ -612,4 +630,14 @@ div.time-block input.sec {
 */
 .r-align {
 	text-align: right;
+}
+
+/*
+* Radio button styles
+*/
+input[type='radio'] {
+	border: 0;
+	opacity: 0;
+	outline: 0;
+	cursor: pointer;
 }
