@@ -10,7 +10,6 @@ input[type="hidden"]::-moz-focus-inner {
 	border: 0;
 }
 
-
 button,
 input,
 textarea {
@@ -176,6 +175,9 @@ table.grey-table {
 	color: #7c7c7c;
 	background-color: #eee;
 }
+.grey-table thead th {
+	text-align: center;
+}
 .grey-table thead th, tfoot td {
 	padding: 7px;
 }
@@ -188,6 +190,7 @@ table.grey-table {
 }
 .grey-table tbody td {
 	padding: 3px;
+	line-height: 24px;
 }
 .grey-table tfoot td div.counter {
 	margin: 8px 0 0 0;
@@ -625,16 +628,24 @@ div.time-block input.sec {
 	margin: 0 auto;
 }
 
-/*
-*	
-*/
+/**
+ * Text align classes
+ */
 .r-align {
 	text-align: right;
 }
 
-/*
-* Radio button styles
-*/
+.l-align {
+	text-align: left;
+}
+
+.c-align {
+	text-align: center;
+}
+
+/**
+ * Radio button styles
+ */
 input[type='radio'] {
 	border: 0;
 	opacity: 0;

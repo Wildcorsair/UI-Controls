@@ -7,7 +7,7 @@
         <script type="text/javascript" 
                 src="http://UI-Controls/js/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" 
-                src="http://UI-Controls/js/function.js"></script>
+                src="http://UI-Controls/js/functions.js"></script>
         <style>
             #wrapper {
                 width: 790px;
