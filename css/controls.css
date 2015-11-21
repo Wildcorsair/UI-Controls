@@ -100,6 +100,14 @@ input[type='submit'] {
 	background-position: -288px -24px;	
 }
 
+.ico-view {
+	background: url("../images/icons_sprite.png") no-repeat;
+	background-position: 0 0;
+}
+
+.ico-view:hover {
+	background-position: 0 -24px;
+}
 .ico-edit {
 	background: url("../images/icons_sprite.png") no-repeat;
 	background-position: -48px 0;
@@ -197,7 +205,7 @@ table.grey-table {
 	height: 24px;
 	float: right;
 }
-.grey-table tfoot td div.pagination {
+.grey-table tfoot td div.pagination-container {
 	margin: 3px;
 	float: left;
 }
@@ -209,6 +217,45 @@ tbody td.c-align {
 }
 tbody td.btn-cont {
 	width: 24px;
+}
+
+ul.pagination-list {
+	margin: 0;
+	padding: 0;
+}
+ul.pagination-list li {
+	list-style: none;
+	display: block;
+	float: left;
+	margin-right: 3px; 
+}
+ul.pagination-list li a {
+	margin: 0;
+	padding: 0; 
+	width: 24px;
+	height: 24px;
+	display: inline-block;
+	line-height: 24px;
+	color: #6d6e71;
+	text-align: center;
+	border: 1px solid #aaa;
+	text-decoration: none;
+	background-color: #fff;
+}
+ul.pagination-list li a:hover {
+	color: #f34a53;
+	background-color: #ccc; /*#efefef; */
+}
+ul.pagination-list li a.active {
+	color: #fff;
+	background-color: #bcbcbc; 
+}
+ul.pagination-list li span {
+	width: 26px;
+	height: 26px;
+	display: block;
+	text-align: center;
+	padding: 5px;
 }
 /* End of gray color table */
 
@@ -241,7 +288,7 @@ a.btn-tb {
 
 
 /* Links as button styles */
-.btn {
+/*.btn {
 	width: 24px;
 	height: 24px;
 	display: inline-block;
@@ -264,7 +311,7 @@ a.btn-tb {
 button.btn {
 	width: 27px;
 	height: 27px;
-}
+}*/
 /* End of links as button styles */
 
 /* Sizes styles */
@@ -332,7 +379,6 @@ button.btn.large {
 	font-family: Arial, Tahoma, Helvetica, sans-serif;
 	font-size: 14px;
 	position: relative;
-	/*position: absolute;*/
 }
 .window-frame.grey {
 	border: 1px solid #AAA;
@@ -342,10 +388,14 @@ button.btn.large {
 	border: 1px solid #3CA6CC;
 	background-color: #fff;
 }
+.window-frame.seawave {
+	border: 1px solid #026689;
+	background-color: #fff;
+}
 .window-frame > .caption {
 	padding: 3px 3px 3px 11px;
 	width: 97,5%;
-	height: 29px;
+	/*height: 29px;*/
 	line-height: 29px;
 }
 
@@ -355,8 +405,13 @@ button.btn.large {
 }
 .window-frame.blue > .caption {
 	color: #fff;
-	border-bottom: 1px solid #3CA6CC;
+	border-bottom: 1px solid #026689;
 	background-color: #4BCFFF;
+}
+.window-frame.seawave > .caption {
+	color: #fff;
+	border-bottom: 1px solid #3CA6CC;
+	background-color: #01718D;
 }
 .window-frame > .btn-bar {
 	width: 100%;
@@ -372,7 +427,7 @@ button.btn.large {
 	/*overflow-x: hidden;*/
 }
 
-.window-frame > p.dialog {
+.window-frame > p.dialog-text {
 	height: 90px;
 	max-height: 100px;
 	margin: 25px 25px 10px;
@@ -381,8 +436,22 @@ button.btn.large {
 }
 
 .window-frame.dialog {
-	width: 350px;
-	height: 230px;
+	/*width: 350px;
+	height: 180px;*/
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 1001;
+}
+#black-frame {
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: #ccc;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
 }
 /* End of windows styles */
 
@@ -404,6 +473,29 @@ table.form-controls-grid td.large {
 	padding-left: 25px;
 }
 
+div.controls-container {
+	margin: 10px 0;
+	float: left;
+	/*height: 35px;*/
+	position: relative;
+	padding: 3px;
+}
+div.controls-container>label {
+	margin-right: 5px;
+	padding: 0;
+	position: relative;
+	top: 5px;
+	float: left;
+}
+div.controls-container-column>label {
+	margin-bottom: 10px;
+}
+div.controls-group {
+	padding: 5px;
+	margin-bottom: 5px;
+	border: 1px solid #aaa;
+	display: table;
+}
 
 /*
 *	Стили контролов формы:
@@ -413,8 +505,8 @@ table.form-controls-grid td.large {
 div.dropdown {
 	border: 1px solid #aaa;
 	width: 220px;
-	height: 24px;
-	line-height: 24px;
+	height: 30px; /*24px;*/
+	line-height: 30px; /*24px;*/
 	padding: 2px;
 	position: relative;
 	background-color: #fff;
@@ -481,7 +573,7 @@ div.items li:hover {
 .window-frame textarea {
 	color: #555;
 	padding: 2px;
-	height: 24px;
+	/*height: 24px;*/
 	line-height: 24px;
 	border: 1px solid #aaa;
 	font-family: Arial, Tahoma, Helvetica, sans-serif;
@@ -503,10 +595,6 @@ div.dt-picker .font-bold {
 	font-family: Arial, Tahoma, Helvetica, sans-serif;
 	font-size: 14px;
 	font-weight: bold;
-}
-
-label {
-	display: inline-block;
 }
 
 /*

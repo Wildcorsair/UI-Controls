@@ -11,20 +11,26 @@ $(document).ready(function() {
 
 	$('.dropdown').click(function() {
 		var visibleItems = $('.items:visible');
+		var ddId = this.id;
+		
+		// Получаем номер из идентификатора dropdown-элемента
+		ddId = getIndexFromId(ddId);
+
 		if (visibleItems.length > 0) {
 			visibleItems.hide();
-			var ddId = this.id;
+			
 			var itemsId = visibleItems.attr('id');
+			// Поучаем номер из идентификатора списка значений dropdown-элемента
+			itemsId = getIndexFromId(itemsId);
+
 			if (ddId !== itemsId) {
-				var id = $(this).attr('id');
-				$(this).css('zIndex', id);
-				var itemsBlock = $('.items[id="'+id+'"]');
+				$(this).css('zIndex', ddId);
+				var itemsBlock = $('.items[id="items-'+ddId+'"]');
 				itemsBlock.css('zIndex', 100).show();
 			}
 		} else {
-			var id = $(this).attr('id');
-			$(this).css('zIndex', id);
-			var itemsBlock = $('.items[id="'+id+'"]');
+			$(this).css('zIndex', ddId);
+			var itemsBlock = $('.items[id="items-'+ddId+'"]');
 			itemsBlock.css('zIndex', 100).show();
 		}
 	});
@@ -187,11 +193,53 @@ $(document).ready(function() {
 		var myEvent = e || window.e;
 			myEvent.stopPropagation();
 	});
-
-	/*
-	*	Конец рабочего кода
-	*/
+	//  Конец рабочего кода
+    
+    //  dev-part
+	/*$('body').on('click', '.ico-close, #button-no, #btn-upload-cancel', function() {
+		var dialogWindow = $(this).parent().parent();
+        var blackFrame = $('#black-frame');
+        dialogWindow.remove();
+        blackFrame.remove();
+	});*/
+    
+    /*$('body').on('click', '#button-no', function() {
+		var dialogWindow = $(this).parent().parent();
+        var blackFrame = $('#black-frame');
+        dialogWindow.remove();
+        blackFrame.remove();
+    });*/
+    
+    /*var dialogWindow = (function() {
+        var width = $(window).width();
+        var offset = $(this).offset();
+        var posW = (w / 2) - 130;
+        var posH = offset.top - 75;
+        console.log("width: " + width + " | offset:" + offset);
+           
+        var init = function() {
+            console.log('initialization');
+        }
+    });*/    
+    //  dev-part end
 }); //End of ready
+
+function closeDialogWindow(object) {
+    $(object).parent().parent().remove();
+    $('#black-frame').remove();
+}
+
+/**
+ *	Функция получения индекса из идентификатора элемента
+ *  который записан в формате name-index, например: dropdown-1
+ */
+function getIndexFromId(id) {
+	// Получаем позицию разделителя "-"
+	var delimiterPos = id.lastIndexOf('-');
+	// Получаем индекс
+	var index = id.substr(delimiterPos + 1);
+	return index;
+}
 
 /*
 *	Описание функций
@@ -326,6 +374,4 @@ calendar.month = {
 				   11: ['Ноябрь', 30],
 				   12: ['Декабрь', 31]
 }
-/*
-*	Конец описания функций
-*/
+//	Конец описания функций

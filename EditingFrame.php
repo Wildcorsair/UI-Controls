@@ -131,6 +131,7 @@
                             </td>
                         </tr>                        
                     </table>
+                    <label for="firstName">First name:</label><input type="text" class="text-field" name="firstName">
                     </div>
                 <div class='btn-bar'>
                     <button class='btn normal primary' type='submit' name='save'>Save</button>
@@ -141,5 +142,5 @@
         </form>
     </body>
             <script type="text/javascript" 
-                src="js/function.js"></script>
+                src="js/functions.js"></script>
 </html>
