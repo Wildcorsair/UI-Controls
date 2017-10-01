@@ -7,7 +7,7 @@
         <script type="text/javascript" 
                 src="js/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" 
-                src="js/function.js"></script>
+                src="js/functions.js"></script>
         <style>
             #wrapper {
                 width: 790px;

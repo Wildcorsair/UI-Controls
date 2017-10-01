@@ -3,11 +3,11 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" 
-                href="http://UI-Controls/css/controls.css">
+                href="http://ui-controls.dev/css/controls.css">
         <script type="text/javascript" 
-                src="http://UI-Controls/js/jquery-1.11.0.min.js"></script>
+                src="http://ui-controls.dev/js/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" 
-                src="http://UI-Controls/js/functions.js"></script>
+                src="http://ui-controls.dev/js/functions.js"></script>
         <style>
             #wrapper {
                 width: 790px;
