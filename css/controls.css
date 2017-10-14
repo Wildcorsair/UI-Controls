@@ -398,7 +398,7 @@ button.btn.large {
 }
 .window-frame > .caption {
 	padding: 3px 3px 3px 11px;
-	width: 97,5%;
+	width: 100%;
 	line-height: 29px;
 }
 
@@ -417,10 +417,9 @@ button.btn.large {
 	background-color: #01718D;
 }
 .window-frame > .btn-bar {
-	width: 100%;
 	height: 36px;
 	text-align: center;
-    margin: 25px 0 20px;
+    margin: 25px 10px 20px 10px;
 }
 .window-frame > p {
 	margin: 15px 20px 7px;
