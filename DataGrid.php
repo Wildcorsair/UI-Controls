@@ -2,11 +2,11 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" 
+		<link rel="stylesheet" type="text/css"
 				href="http://ui-controls.dev/css/controls.css">
-		<script type="text/javascript" 
+		<script type="text/javascript"
 				src="http://ui-controls.dev/js/jquery-1.11.0.min.js"></script>
-		<script type="text/javascript" 
+		<script type="text/javascript"
 				src="http://ui-controls.dev/js/functions.js"></script>
 		<style>
 			#wrapper {
@@ -77,7 +77,7 @@
 						</td>
 					</tr>
 				</tfoot>
-			</table>			
+			</table>
 			<br />
 			<div class='btns-group'>
 				<button class='btn'>5</button>
@@ -97,7 +97,8 @@
 			<button class='btn normal success' data-value='item22'>Success</button>
 			<button class='btn normal cancel'>Cancel</button>
 			<input class='btn normal' type='submit' value='Submit' />
-			<div class='btn-tb ico-last'></div>
+			<!-- <div class='btn-tb ico-last'></div> -->
+			<div class='btn ico-hide'></div>
 			<!--<table class=''>
 				<thead>
 					<tr>

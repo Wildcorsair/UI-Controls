@@ -145,17 +145,14 @@ input[type='submit'] {
 	background: url("../images/icons_sprite.png") no-repeat;
 	background-position: -360px 0;
 }
-
 .ico-close:hover {
 	background-position: -360px -24px;
 }
-
 .ico-radio-empty {
 	background: url("../images/icons_sprite.png") no-repeat;
 	background-position: 0 -48px;
 	content: "\2713";
 }
-
 .ico-radio-empty:hover {
 	background-position: 0 -72px;
 }
@@ -163,17 +160,23 @@ input[type='submit'] {
 	background: url("../images/icons_sprite.png") no-repeat;
 	background-position: -24px -48px;
 }
-
 .ico-radio-checked:hover {
 	background-position: -24px -72px;
 }
-
 .ico-list {
 	background: url("../images/icons_sprite.png") no-repeat;
 	background-position: -96px -48px;
 }
 .ico-list:hover {
 	background-position: -96px -72px;
+}
+.ico-hide {
+  background: url("../images/icons_sprite.png") no-repeat;
+  background-position: -120px -48px;
+}
+.ico-hide:hover {
+  background: url("../images/icons_sprite.png") no-repeat;
+  background-position: -120px -72px;
 }
 /* End of icons styles */
 
@@ -398,7 +401,7 @@ button.btn.large {
 }
 .window-frame > .caption {
 	padding: 3px 3px 3px 11px;
-	width: 100%;
+	/*width: 100%;*/
 	line-height: 29px;
 }
 
