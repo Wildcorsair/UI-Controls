@@ -175,6 +175,14 @@ input[type='submit'] {
 .ico-list:hover {
 	background-position: -96px -72px;
 }
+.ico-hide {
+  background: url("../images/icons_sprite.png") no-repeat;
+  background-position: -96px -48px;
+}
+.ico-hide:hover {
+  background: url("../images/icons_sprite.png") no-repeat;
+  background-position: -96px -72px;
+}
 /* End of icons styles */
 
 
@@ -398,7 +406,7 @@ button.btn.large {
 }
 .window-frame > .caption {
 	padding: 3px 3px 3px 11px;
-	width: 100%;
+	/*width: 100%;*/
 	line-height: 29px;
 }
 
